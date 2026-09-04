@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="생년월일만 넣으면 띠를 기준으로 오늘 일진 운세를 봐드립니다. 부산 카페 데니스, 수달도사의 오늘의 운세.">
+<meta name="description" content="수달도사가 오늘의 운세 봐드립니다. 생년월일만 넣으면 띠를 기준으로 오늘 일진 운세를 봐드립니다. 부산 카페 데니스.">
 <meta name="theme-color" content="#e7dfc8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="수달도사의 오늘의 운세">
-<meta property="og:title" content="수달도사가 봐주는 오늘의 운세">
-<meta property="og:description" content="생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드립니다.">
+<meta property="og:title" content="수달도사가 오늘의 운세 봐드립니다">
+<meta property="og:description" content="생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드려요.">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="수달도사가 봐주는 오늘의 운세">
-<meta name="twitter:description" content="생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드립니다.">
+<meta name="twitter:title" content="수달도사가 오늘의 운세 봐드립니다">
+<meta name="twitter:description" content="생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드려요.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23cc3327'/%3E%3Crect x='14' y='14' width='72' height='72' rx='7' fill='none' stroke='%23fff6f2' stroke-width='6'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23cc3327'/%3E%3Crect x='14' y='14' width='72' height='72' rx='7' fill='none' stroke='%23fff6f2' stroke-width='6'/%3E%3C/svg%3E">
 <style>
@@ -35,7 +37,8 @@
   --ohaeng-mok:#1c7a5f; --ohaeng-hwa:#cc3327; --ohaeng-to:#a3740b;
   --ohaeng-geum:#6f7581; --ohaeng-su:#2c3f74;
   --shadow:4px 4px 0 var(--line); --shadow-sm:3px 3px 0 var(--line);
-  --rule:#d3c8ab; --dot:rgba(23,20,15,.10); --radius:3px;
+  --rule:#d3c8ab; --sticky:rgba(231,223,200,.9); --ju-tint:rgba(204,51,39,.07);
+  --dot:rgba(23,20,15,.10); --radius:3px;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
@@ -45,7 +48,8 @@
     --ju:#ef5c4d; --ju-ink:#1a0f0d; --hwang:#f0bb45;
     --ohaeng-mok:#39b48d; --ohaeng-hwa:#ef5c4d; --ohaeng-to:#e6ac2e;
     --ohaeng-geum:#a9b0bc; --ohaeng-su:#7f92d6;
-    --rule:#38322a; --dot:rgba(236,228,210,.07);
+    --rule:#38322a; --sticky:rgba(20,18,16,.9); --ju-tint:rgba(239,92,77,.12);
+    --dot:rgba(236,228,210,.07);
     color-scheme:dark;
   }
 }
@@ -55,7 +59,8 @@
   --ju:#ef5c4d; --ju-ink:#1a0f0d; --hwang:#f0bb45;
   --ohaeng-mok:#39b48d; --ohaeng-hwa:#ef5c4d; --ohaeng-to:#e6ac2e;
   --ohaeng-geum:#a9b0bc; --ohaeng-su:#7f92d6;
-  --rule:#38322a; --dot:rgba(236,228,210,.07);
+  --rule:#38322a; --sticky:rgba(20,18,16,.9); --ju-tint:rgba(239,92,77,.12);
+  --dot:rgba(236,228,210,.07);
   color-scheme:dark;
 }
 
@@ -63,15 +68,27 @@
 body{
   margin:0; background:var(--hanji); color:var(--ink);
   font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
-  font-size:15px; line-height:1.62; -webkit-text-size-adjust:100%;
+  font-size:15px; line-height:1.64; -webkit-text-size-adjust:100%;
   background-image:radial-gradient(var(--dot) 1px, transparent 1px);
   background-size:5px 5px;
 }
-.wrap{max-width:600px;margin:0 auto;padding:24px 20px 56px}
+.wrap{
+  max-width:460px;margin:0 auto;
+  padding:22px 18px calc(56px + env(safe-area-inset-bottom,0px));
+}
 .display{font-family:"Black Han Sans","Apple SD Gothic Neo",sans-serif;font-weight:400;letter-spacing:-.01em;line-height:1.1}
 .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
 p{margin:0 0 .7em} p:last-child{margin-bottom:0}
 .hidden{display:none !important}
+.sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+.section-kicker{
+  margin:24px 2px 9px;font-size:10px;font-weight:700;letter-spacing:.16em;
+  color:var(--ink-soft);text-transform:uppercase;
+}
 :focus-visible{outline:3px solid var(--ju);outline-offset:2px}
 /* ===== 모션 ===== */
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -102,6 +119,7 @@ p{margin:0 0 .7em} p:last-child{margin-bottom:0}
 .anim-rise{animation:rise .5s cubic-bezier(.2,.8,.3,1) both}
 .anim-card{animation:cardDrop .52s cubic-bezier(.2,.9,.28,1.05) both}
 [data-stagger]{animation:riseSm .44s cubic-bezier(.2,.8,.3,1) both;animation-delay:calc(var(--i,0)*70ms + 120ms)}
+.ln+.ln{margin-top:.16em}
 .ln{display:block;animation:lineIn .46s cubic-bezier(.2,.8,.3,1) both;animation-delay:calc(var(--i,0)*95ms + 150ms)}
 .ln.blank{height:.55em}
 .obang i{transform-origin:left center;animation:bandFill .55s cubic-bezier(.2,.9,.3,1) both}
@@ -150,7 +168,11 @@ header.top{display:flex;justify-content:space-between;align-items:flex-start;gap
 .tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .count{font-size:11.5px;color:var(--ink-soft)}
 .err{color:var(--ju);font-size:12.5px;font-weight:600}
-.hint{font-size:11.5px;color:var(--ink-soft);line-height:1.55}
+.hint{font-size:11.5px;color:var(--ink-soft);line-height:1.6}
+.hint.boxed{
+  margin-top:10px;padding:11px 13px;border-radius:5px;
+  background:var(--hanji);border:1px solid var(--rule);
+}
 
 .seal{
   background:var(--ju);color:var(--ju-ink);flex:none;
@@ -180,12 +202,22 @@ header.top{display:flex;justify-content:space-between;align-items:flex-start;gap
 .gate .lead .t3{font-size:13px;color:var(--ink-soft);word-break:keep-all}
 label.f{display:grid;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:var(--ink-soft)}
 label.f input{
-  font:inherit;font-size:16px;background:var(--hanji);color:var(--ink);
-  border:2px solid var(--line);border-radius:var(--radius);padding:10px;width:100%;
+  font:inherit;font-size:17px;font-weight:600;background:var(--hanji);color:var(--ink);
+  border:2px solid var(--line);border-radius:5px;padding:13px 14px;width:100%;min-height:52px;
 }
 
 /* 결과 */
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:20px;flex-wrap:wrap;
+  position:sticky;top:8px;z-index:5;
+  padding:6px 7px;border:1.5px solid var(--rule);border-radius:999px;
+  background:var(--sticky);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.nav button{border-color:transparent;background:transparent}
+.nav button:hover{background:var(--hanji-3)}
+.who{border-color:transparent}
 .nav{display:flex;gap:6px;align-items:center}
 .nav button{
   font:inherit;font-size:13px;font-weight:600;cursor:pointer;
@@ -205,7 +237,7 @@ label.f input{
 
 /* 프리셋 */
 .presets{
-  margin-top:18px;background:transparent;border:0;box-shadow:none;padding:0;
+  margin-top:0;background:transparent;border:0;box-shadow:none;padding:0;
   display:grid;gap:9px;
 }
 .pset{display:grid;gap:6px}
@@ -222,7 +254,7 @@ label.f input{
 .pd{font-size:11.5px;color:var(--ink-soft);word-break:keep-all;line-height:1.6}
 
 .card{
-  position:relative;margin-top:26px;background:var(--hanji-2);
+  position:relative;margin-top:0;background:var(--hanji-2);
   border:2px solid var(--line);border-radius:5px;
   box-shadow:6px 6px 0 var(--line);padding:24px 24px 20px;
 }
@@ -255,7 +287,7 @@ label.f input{
 }
 /* 입력 화면 12간지 줄 */
 .zstrip{
-  display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:16px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:16px;
   padding-top:15px;border-top:1px solid var(--rule);
 }
 .zstrip img{
@@ -264,22 +296,34 @@ label.f input{
   animation:riseSm .4s cubic-bezier(.2,.8,.3,1) both;
 }
 .card .body{font-family:"Noto Serif KR",serif;font-size:17px;line-height:1.95;word-break:keep-all;letter-spacing:-.005em}
-.card .oneline{margin-top:17px;padding-top:14px;border-top:1.5px dashed var(--rule);font-size:15px;font-weight:600;word-break:keep-all;line-height:1.6}
+.card .oneline{
+  margin-top:19px;padding:13px 15px;
+  border-left:4px solid var(--ju);border-radius:0 5px 5px 0;
+  background:var(--ju-tint);
+  font-size:15px;font-weight:600;word-break:keep-all;line-height:1.6;
+}
 .card .oneline b{color:var(--ju);font-weight:600}
 .card .tools{margin-top:15px}
 
 /* ===== 오늘 한눈에 (보조 정보 한 덩어리) ===== */
 .glance{
-  margin-top:20px;background:var(--hanji-2);
+  margin-top:0;background:var(--hanji-2);
   border:1.5px solid var(--rule);border-radius:7px;overflow:hidden;
 }
 .g-head{
   font-size:10.5px;font-weight:600;letter-spacing:.11em;color:var(--ink-soft);
   padding:11px 15px 10px;border-bottom:1px solid var(--rule);
 }
-.g-cells{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.gcell{padding:13px 14px;border-right:1px solid var(--rule);display:grid;gap:3px;min-width:0;align-content:start}
-.gcell:last-child{border-right:0}
+.g-cells{display:grid;grid-template-columns:1fr}
+.gcell{
+  grid-template-columns:104px 1fr;column-gap:12px;align-items:center;
+  border-right:0;border-bottom:1px solid var(--rule);
+}
+.gcell:last-child{border-bottom:0}
+.gcell .lab{grid-column:1;grid-row:1}
+.gcell .mark{grid-column:1;grid-row:2}
+.gcell .txt{grid-column:2;grid-row:1/3;align-self:center}
+.gcell{padding:13px 15px;display:grid;gap:3px;min-width:0;align-content:start}
 .gcell .lab{font-size:10px;font-weight:600;letter-spacing:.07em;color:var(--ink-soft)}
 .gcell .mark{font-family:"Noto Serif KR",serif;font-weight:900;font-size:15.5px;display:flex;align-items:baseline;gap:6px;min-width:0}
 .gcell .mark em{font-family:"IBM Plex Sans KR",sans-serif;font-style:normal;font-size:14px;font-weight:600;color:var(--ink)}
@@ -288,6 +332,7 @@ label.f input{
 .gcell.t-sip .mark{color:var(--ju)}
 .gcell.t-oh  .mark{color:var(--ohc)}
 .g-do{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr}
+.gd.good{border-right:1px solid var(--rule)}
 .gd{padding:12px 14px;display:grid;gap:3px;border-right:1px solid var(--rule);min-width:0}
 .gd:last-child{border-right:0}
 .gd .k{font-size:10px;font-weight:600;letter-spacing:.07em;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
@@ -302,7 +347,13 @@ label.f input{
 .g-tip .tl{font-family:"Noto Serif KR",serif;font-weight:900;font-size:17px;color:var(--hwang);flex:none;line-height:1.35}
 .g-tip .tt{font-size:12.5px;color:var(--ink-soft);word-break:keep-all;line-height:1.65}
 @media(max-width:400px){
-  .gcell{padding:11px 10px}
+  .topbar{top:6px;padding:5px 6px}
+  .nav button{padding:6px 10px;font-size:12px}
+  .who{font-size:11.5px;padding:4px 10px}
+  .gcell{grid-template-columns:92px 1fr;column-gap:10px}
+}
+@media(max-width:400px){
+  .gcell{padding:11px 12px}
   .gcell .mark{font-size:14px} .gcell .mark em{font-size:13px}
   .gcell .txt{font-size:11px}
   .gd{padding:11px 12px} .gd .v{font-size:12.5px}
@@ -368,6 +419,26 @@ details.deep:not([open])>summary .mk::after{content:"보기"}
 .deep-body .k{font-size:10.5px;font-weight:600;letter-spacing:.07em;color:var(--ink-soft);margin-bottom:3px}
 .deep-body>div+div{border-top:1px solid var(--rule);padding-top:12px}
 
+.againbtn{
+  width:100%;margin-top:20px;cursor:pointer;font:inherit;text-align:left;
+  background:var(--ink);color:var(--hanji);
+  border:2px solid var(--line);border-radius:5px;box-shadow:5px 5px 0 var(--line);
+  padding:15px 18px;display:flex;align-items:center;gap:14px;
+}
+.againbtn:hover{background:var(--ju);color:var(--ju-ink);border-color:var(--line)}
+.againbtn:active{transform:translate(5px,5px);box-shadow:none}
+.againbtn .ag-ic{
+  font-size:20px;line-height:1;flex:none;
+  width:38px;height:38px;border-radius:50%;
+  border:2px solid currentColor;display:flex;align-items:center;justify-content:center;
+}
+.againbtn .ag-t{display:grid;gap:2px;min-width:0}
+.againbtn .ag-1{font-family:"Black Han Sans",sans-serif;font-size:17px;letter-spacing:-.01em}
+.againbtn .ag-2{font-size:11.5px;opacity:.72;word-break:keep-all}
+@media(max-width:400px){
+  .againbtn{padding:13px 15px;gap:11px}
+  .againbtn .ag-1{font-size:15.5px}
+}
 .footlinks{margin-top:16px}
 .linkbtn{
   font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
@@ -392,21 +463,21 @@ footer{margin-top:30px;padding-top:16px;border-top:1.5px solid var(--rule);font-
 <div class="obang" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 <p class="tagline" id="tagline">생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드립니다.</p>
 
-<div class="gate anim-rise" id="gate">
+<section class="gate anim-rise" id="gate" aria-label="생년월일 입력">
   <div class="lead">
     <div class="seal stamp" id="gseal"><div class="cols" id="gsealtxt"><span>庚</span><span>辰</span></div></div>
     <div>
       <div class="t1" id="gdate"></div>
-      <div class="display t2" id="gilju"></div>
+      <div class="display t2" id="gilju"></div><h2 class="sr-only">생년월일 입력</h2>
       <div class="t3">오늘의 일진입니다. 아래에 생년월일을 넣어주세요.</div>
     </div>
   </div>
-  <label class="f">생년월일<input type="date" id="bday" value="1982-07-15" min="1900-01-01" max="2030-12-31"></label>
-  <p class="hint" style="margin-top:9px">띠는 양력 생일이 아니라 입춘(2월 4일 무렵)을 기준으로 넘어갑니다. 입력하신 날짜는 이 브라우저에만 남고 어디로도 전송되지 않습니다.</p>
+  <label class="f">생년월일<input type="date" id="bday" min="1900-01-01"></label>
+  <p class="hint boxed">띠는 양력 생일이 아니라 입춘(2월 4일 무렵)을 기준으로 넘어갑니다. 입력하신 날짜는 이 브라우저에만 남고 어디로도 전송되지 않습니다.</p>
   <div class="zstrip" id="zstrip" aria-hidden="true"></div>
   <div class="tools" style="margin-top:15px"><button class="btn ju big" type="button" id="calcbtn">내 운세 보기</button></div>
   <div class="tools" style="margin-top:9px"><span class="err hidden" id="calcerr"></span></div>
-</div>
+</section>
 
 <div id="result" class="hidden">
   <div class="topbar">
@@ -418,6 +489,7 @@ footer{margin-top:30px;padding-top:16px;border-top:1.5px solid var(--rule);font-
     <span class="who" id="who"></span>
   </div>
 
+  <div class="section-kicker">운세의 초점</div>
   <div class="presets anim-rise">
     <div class="pset">
       <div class="pl">무엇을 볼까요</div>
@@ -426,6 +498,7 @@ footer{margin-top:30px;padding-top:16px;border-top:1.5px solid var(--rule);font-
     <div class="pd" id="presetDesc"></div>
   </div>
 
+  <div class="section-kicker">오늘의 풀이</div>
   <div class="card">
     <div class="stampwrap"><div class="seal stamp" id="rseal"><div class="cols" id="rsealtxt"><span>庚</span><span>辰</span></div></div></div>
     <div class="head">
@@ -444,6 +517,7 @@ footer{margin-top:30px;padding-top:16px;border-top:1.5px solid var(--rule);font-
     </div>
   </div>
 
+  <div class="section-kicker">핵심 요약</div>
   <div class="glance" id="glance">
     <div class="g-head">오늘 한눈에</div>
     <div class="g-cells" id="tiles"></div>
@@ -459,12 +533,18 @@ footer{margin-top:30px;padding-top:16px;border-top:1.5px solid var(--rule);font-
     <div class="deep-body" id="deepbody"></div>
   </details>
 
-  <div class="footlinks" id="editRow"><button class="linkbtn" type="button" id="editbtn">생년월일 다시 넣기</button></div>
+  <button class="againbtn" type="button" id="editbtn" data-stagger>
+    <span class="ag-ic" aria-hidden="true">↺</span>
+    <span class="ag-t">
+      <span class="ag-1">다른 생년월일로 다시 보기</span>
+      <span class="ag-2">옆 사람 운세도 바로 봐드릴 수 있어요</span>
+    </span>
+  </button>
 
   <div class="share" id="shareBox">
     <div class="sh-head">
-      <div class="sh-t">오늘 운세, 친구에게 보내주세요</div>
-      <div class="sh-s">받는 사람은 자기 생년월일을 넣어 자기 운세를 봅니다.</div>
+      <div class="sh-t">친구에게도 봐주세요</div>
+      <div class="sh-s" id="shPitch"></div>
     </div>
     <button class="sh-kakao" type="button" id="shKakao">
       <span class="bub" aria-hidden="true">💬</span><span>카카오톡으로 보내기</span>
@@ -968,9 +1048,10 @@ function render(){
   el("today").classList.toggle("now", isToday);
 
   replay(document.querySelector("#result .card"), "anim-card");
-  stagger(["glance","deepBox","editRow","shareBox"]);
+  stagger(["glance","deepBox","editbtn","shareBox"]);
 
   var pv=el("shPrev"); if(pv) pv.classList.add("hidden");
+  el("shPitch").textContent = "“" + INVITE_HEAD + "” 이렇게 링크와 함께 전해집니다. 받은 분은 자기 생년월일을 넣어 자기 운세를 봅니다.";
   if(typeof refreshShareLinks === "function") refreshShareLinks();
 }
 /* 본문을 줄 단위로 그려서 한 줄씩 차례로 나타나게 한다 */
@@ -1129,9 +1210,21 @@ el("copybtn").addEventListener("click", function(){
 
 /* 공유 */
 function pageUrl(){ return location.href.split("#")[0]; }
+/* 친구에게 보내는 건 내 운세가 아니라 초대 문구 */
+var INVITE=[
+  "생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드려요.",
+  "오늘 하루가 어떻게 흘러갈지, 띠로 짚어드립니다.",
+  "생년월일 하나면 됩니다. 오늘 하면 좋은 것과 미룰 것까지 봐드려요.",
+  "띠만 알면 오늘 하루가 보입니다. 생년월일만 넣어주세요.",
+  "오늘의 일진이 내 띠에 어떻게 닿는지 보고 가세요."
+];
+var INVITE_HEAD="수달도사가 오늘의 운세 봐드립니다 🔮";
+function inviteLine(){
+  if(!state.invite) state.invite = INVITE[Math.floor(Math.random()*INVITE.length)];
+  return state.invite;
+}
 function shareText(){
-  return state.bodyText + "\n" + el("rone").textContent +
-         "\n\n— 수달도사의 오늘 일진\n" + pageUrl();
+  return INVITE_HEAD + "\n" + inviteLine() + "\n\n" + pageUrl();
 }
 function shMsg(t){
   el("shMsg").textContent = t;
@@ -1311,7 +1404,7 @@ function buildStory(){
   x.strokeStyle=S.rule; x.lineWidth=2;
   x.beginPath(); x.moveTo(P,H-176); x.lineTo(W-P,H-176); x.stroke();
   x.fillStyle=S.soft; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
-  x.fillText("생년월일만 넣으면 내 띠 운세를 봐드립니다", P, H-146);
+  x.fillText("수달도사가 오늘의 운세 봐드립니다 · 생년월일만 넣으면 됩니다", P, H-146);
   x.fillStyle=S.ink; x.font="600 28px 'IBM Plex Sans KR', sans-serif";
   x.fillText(pageUrl().replace(/^https?:\/\//,""), P, H-100);
   return c;
@@ -1357,12 +1450,19 @@ el("shInsta").addEventListener("click", shareStory);
 
 function refreshShareLinks(){
   var u = encodeURIComponent(pageUrl());
-  var t = encodeURIComponent(state.bodyText.split("\n")[0] + " — 수달도사의 오늘 일진");
+  var t = encodeURIComponent(INVITE_HEAD + " " + inviteLine());
   el("shX").href  = "https://twitter.com/intent/tweet?text=" + t + "&url=" + u;
 }
 
 buildPresets();
 renderGate();
+
+/* 생년월일 칸 기본값 = 오늘 날짜 */
+var _t=new Date();
+var todayStr=_t.getFullYear()+"-"+String(_t.getMonth()+1).padStart(2,"0")+"-"+String(_t.getDate()).padStart(2,"0");
+el("bday").value=todayStr;
+el("bday").max=todayStr;
+
 var prev=null; try{ prev=localStorage.getItem("sudal-bday"); }catch(e){}
 if(prev){
   el("bday").value = prev;
