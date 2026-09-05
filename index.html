@@ -195,7 +195,7 @@ p{margin:0 0 .7em} p:last-child{margin-bottom:0}
 .zstrip img{animation:hop .5s cubic-bezier(.3,1.45,.5,1) both}
 
 /* 버튼도 살짝 튄다 */
-.btn,.againbtn,.sh-kakao,.sh-insta,.pchip,.nav button,.themetog{
+.btn,.againbtn,.sh-kakao,.sh-insta,.pchip,.themetog{
   transition:transform .16s cubic-bezier(.34,1.5,.64,1), background .15s ease, color .15s ease, box-shadow .16s ease;
 }
 .btn:hover,.againbtn:hover,.sh-insta:hover{transform:translateY(-2px)}
@@ -304,19 +304,13 @@ label.f input{
   background:var(--sticky);
   -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
 }
-.nav button{border-color:transparent;background:transparent}
-.nav button:hover{background:var(--hanji-3)}
 .who{border-color:transparent}
-.nav{display:flex;gap:6px;align-items:center}
-.nav button{
-  font:inherit;font-size:13px;font-weight:600;cursor:pointer;
-  background:var(--hanji-2);color:var(--ink-soft);border:1.5px solid var(--rule);
-  padding:6px 12px;border-radius:999px;
-  transition:background .15s ease,color .15s ease;
+.tday{
+  font-size:12.5px;font-weight:600;
+  background:var(--ju);color:var(--ju-ink);
+  border:1.5px solid var(--ju);border-radius:999px;padding:5px 14px;
+  animation:sweep .5s cubic-bezier(.34,1.5,.64,1) both;
 }
-.nav button:hover{background:var(--hanji-3);color:var(--ink)}
-.nav button:active{transform:scale(.95)}
-.nav button.now{background:var(--ju);color:var(--ju-ink);border-color:var(--ju)}
 .who{
   font-size:12.5px;font-weight:600;color:var(--ink-soft);
   border:1.5px solid var(--rule);border-radius:999px;padding:5px 13px;
@@ -453,7 +447,6 @@ label.f input{
 .g-tip .tt{font-size:12.5px;color:var(--ink-soft);word-break:keep-all;line-height:1.65}
 @media(max-width:400px){
   .topbar{top:6px;padding:5px 6px}
-  .nav button{padding:6px 10px;font-size:12px}
   .who{font-size:11.5px;padding:4px 10px}
   .gcell{grid-template-columns:92px 1fr;column-gap:10px}
 }
@@ -625,11 +618,7 @@ footer{margin-top:22px;padding-top:16px;border-top:1.5px solid var(--rule);font-
 
 <div id="result" class="hidden">
   <div class="topbar">
-    <div class="nav">
-      <button type="button" id="prev" aria-label="어제">◀</button>
-      <button type="button" id="today" class="now">오늘</button>
-      <button type="button" id="next" aria-label="내일">▶</button>
-    </div>
+    <span class="tday" id="tday"></span>
     <span class="who" id="who"></span>
   </div>
 
@@ -1209,9 +1198,7 @@ function render(){
     samhapOf(me.z).name+" 기준으로 오늘의 "+Z[day.zi]+"("+ZH[day.zi]+")는 "+sin+" 자리입니다. "+SINSAL[sin].feat+"."));
   D.appendChild(drow("인생 단계",
     stage.n+" 구간("+stage.age+", 한국 나이 "+age+"세) — "+stage.focus+" 쪽에 무게가 실리기 쉽습니다."));
-  var t=new Date();
-  var isToday = day.y===t.getFullYear() && day.m===t.getMonth()+1 && day.d===t.getDate();
-  el("today").classList.toggle("now", isToday);
+  el("tday").textContent = "오늘 · " + day.m + "월 " + day.d + "일";
 
   replay(document.querySelector("#result .card"), "anim-card");
   stagger(["glance","deepBox","editbtn","shareBox"]);
@@ -1317,11 +1304,16 @@ function toTop(){ try{ window.scrollTo({top:0, behavior:"auto"}); }catch(e){ win
 function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); toTop(); }
 function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); }
 
-function shift(n){ var d=new Date(state.date); d.setDate(d.getDate()+n); state.date=d; render(); }
-el("prev").addEventListener("click", function(){ shift(-1); });
-el("next").addEventListener("click", function(){ shift(1); });
-el("today").addEventListener("click", function(){ state.date=new Date(); render(); });
 el("editbtn").addEventListener("click", showGate);
+
+/* 화면을 다시 볼 때 날짜가 바뀌었으면 오늘로 맞춘다 */
+document.addEventListener("visibilitychange", function(){
+  if(document.hidden || !state.me) return;
+  var n=new Date(), d=state.date;
+  if(n.getFullYear()!==d.getFullYear() || n.getMonth()!==d.getMonth() || n.getDate()!==d.getDate()){
+    state.date=n; render();
+  }
+});
 
 function makeMe(y,m,d){
   var sy = sajuYearOf(y,m,d);
