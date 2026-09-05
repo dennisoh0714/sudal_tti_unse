@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="수달도사가 여러분의 오늘 운세가 어떻게 되는지 알려드립니다. 생년월일만 넣으면 됩니다. 부산 카페 데니스.">
+<meta name="description" content="수달도사가 여러분의 오늘 운세가 어떻게 되는지 알려드립니다. 생년월일 숫자 여덟 자리만 넣으면 됩니다. 부산 카페 데니스.">
 <meta name="theme-color" content="#e7dfc8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
@@ -290,9 +290,18 @@ header.top{display:flex;justify-content:space-between;align-items:flex-start;gap
 .gate .ghead .t2{font-size:29px;margin:2px 0 0}
 label.f{display:grid;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:var(--ink-soft)}
 label.f input{
-  font:inherit;font-size:17px;font-weight:600;background:var(--hanji);color:var(--ink);
-  border:2px solid var(--line);border-radius:5px;padding:13px 14px;width:100%;min-height:52px;
+  font:inherit;font-size:26px;font-weight:600;background:var(--hanji);color:var(--ink);
+  border:2px solid var(--line);border-radius:5px;padding:14px 16px;width:100%;min-height:62px;
+  font-variant-numeric:tabular-nums;letter-spacing:.06em;text-align:center;
 }
+label.f input::placeholder{color:var(--ink-soft);opacity:.42;font-weight:600}
+.flab{display:flex;align-items:baseline;gap:7px}
+.flab em{font-style:normal;font-size:10.5px;font-weight:600;color:var(--ju);letter-spacing:.03em}
+.bday-echo{
+  margin-top:8px;text-align:center;font-size:13px;font-weight:600;
+  color:var(--ink-soft);min-height:1.5em;
+}
+.bday-echo.ok{color:var(--ju)}
 
 /* 결과 */
 /* 프리셋 */
@@ -586,8 +595,13 @@ footer{margin-top:22px;padding-top:16px;border-top:1.5px solid var(--rule);font-
     <img class="dosa" id="gdosa" alt="수달도사" width="88" height="110">
     <div class="bubble" id="gbubble"></div>
   </div>
-  <label class="f">생년월일<input type="date" id="bday" min="1900-01-01"></label>
-  <p class="hint boxed">생년월일은 양력으로 넣어주시면 정확합니다. 입력해 주신 날짜는 이 브라우저에만 잠시 머물 뿐, 어디로도 전송되지 않으니 안심하고 넣어주세요.</p>
+  <label class="f">
+    <span class="flab">생년월일 <em>숫자 8자리</em></span>
+    <input type="text" id="bday" inputmode="numeric" pattern="[0-9]*" maxlength="12"
+           placeholder="19820715" autocomplete="off" enterkeyhint="go" aria-describedby="bdayEcho">
+  </label>
+  <div class="bday-echo" id="bdayEcho">년 · 월 · 일 순서로 숫자만 눌러주세요</div>
+  <p class="hint boxed">생년월일은 양력으로, 숫자만 눌러주시면 됩니다. 입력해 주신 날짜는 이 브라우저에만 잠시 머물 뿐, 어디로도 전송되지 않으니 안심하고 넣어주세요.</p>
   <div class="zstrip" id="zstrip" aria-hidden="true"></div>
   <div class="tools" style="margin-top:15px"><button class="btn ju big" type="button" id="calcbtn">내 운세 보기</button></div>
   <div class="tools" style="margin-top:9px"><span class="err hidden" id="calcerr"></span></div>
@@ -1095,6 +1109,7 @@ function renderGate(){
   if(!state.greet) state.greet = GREET[Math.floor(Math.random()*GREET.length)];
   el("gbubble").textContent = state.greet;
   buildStrip();
+  if(typeof onBdayInput==="function") onBdayInput();
 }
 
 function render(){
@@ -1272,7 +1287,7 @@ function pickForm(){
 
 function toTop(){ try{ window.scrollTo({top:0, behavior:"auto"}); }catch(e){ window.scrollTo(0,0); } }
 function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); toTop(); }
-function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); }
+function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); onBdayInput(); toTop(); }
 
 el("editbtn").addEventListener("click", showGate);
 
@@ -1289,16 +1304,55 @@ function makeMe(y,m,d){
   var sy = sajuYearOf(y,m,d);
   return { z:yearBranch(sy), sajuYear:sy, birth:{y:y,m:m,d:d} };
 }
+/* 숫자만 남기고 1982.07.15 모양으로 보여준다 */
+function digitsOf(v){ return (v||"").replace(/[^0-9]/g,"").slice(0,8); }
+function prettyDate(d){
+  if(d.length<=4) return d;
+  if(d.length<=6) return d.slice(0,4)+"."+d.slice(4);
+  return d.slice(0,4)+"."+d.slice(4,6)+"."+d.slice(6);
+}
+function parseBday(d){
+  if(d.length!==8) return {err:"여덟 자리를 채워주세요."};
+  var y=+d.slice(0,4), m=+d.slice(4,6), dd=+d.slice(6);
+  if(y<1900) return {err:"1900년 이후로 넣어주세요."};
+  if(m<1||m>12) return {err:"월은 01~12 사이로 넣어주세요."};
+  var last=new Date(y, m, 0).getDate();
+  if(dd<1||dd>last) return {err:y+"년 "+m+"월은 "+last+"일까지 있어요."};
+  var t=new Date();
+  if(new Date(y,m-1,dd) > new Date(t.getFullYear(),t.getMonth(),t.getDate()))
+    return {err:"오늘보다 뒤의 날짜는 넣을 수 없어요."};
+  return {y:y, m:m, d:dd};
+}
+function onBdayInput(){
+  var inp=el("bday"), d=digitsOf(inp.value);
+  inp.value=prettyDate(d);
+  var echo=el("bdayEcho");
+  el("calcerr").classList.add("hidden");
+  if(d.length<8){
+    echo.classList.remove("ok");
+    echo.textContent = d.length ? "여덟 자리를 채워주세요 · " + d.length + " / 8"
+                                : "년 · 월 · 일 순서로 숫자만 눌러주세요";
+    return;
+  }
+  var r=parseBday(d);
+  if(r.err){ echo.classList.remove("ok"); echo.textContent=r.err; return; }
+  echo.classList.add("ok");
+  echo.textContent = r.y+"년 "+r.m+"월 "+r.d+"일";
+}
+
 function submit(){
-  var v=el("bday").value, errEl=el("calcerr");
-  if(!v){ errEl.textContent="생년월일을 넣어주세요."; errEl.classList.remove("hidden"); return; }
-  var p=v.split("-"), yy=+p[0];
-  if(yy<1900||yy>2030){ errEl.textContent="1900년부터 2030년 사이로 넣어주세요."; errEl.classList.remove("hidden"); return; }
+  var errEl=el("calcerr"), d=digitsOf(el("bday").value);
+  var r=parseBday(d);
+  if(r.err){
+    errEl.textContent = d.length!==8 ? "생년월일을 숫자 여덟 자리로 넣어주세요. 예) 19820715" : r.err;
+    errEl.classList.remove("hidden"); el("bday").focus(); return;
+  }
   errEl.classList.add("hidden");
   state.date = new Date();
-  state.me = makeMe(yy,+p[1],+p[2]);
+  state.me = makeMe(r.y, r.m, r.d);
   showResult();
 }
+el("bday").addEventListener("input", onBdayInput);
 el("calcbtn").addEventListener("click", submit);
 el("bday").addEventListener("keydown", function(e){ if(e.key==="Enter") submit(); });
 
@@ -1624,11 +1678,6 @@ el("adImg").src = AD_IMG;
 buildPresets();
 renderGate();
 
-/* 생년월일 칸 기본값 = 오늘 날짜 */
-var _t=new Date();
-var todayStr=_t.getFullYear()+"-"+String(_t.getMonth()+1).padStart(2,"0")+"-"+String(_t.getDate()).padStart(2,"0");
-el("bday").value=todayStr;
-el("bday").max=todayStr;
 
 /* 열 때마다 입력 화면부터 시작한다. 이전에 본 사람의 결과가 남지 않도록
    생년월일은 저장하지 않는다. */
