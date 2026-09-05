@@ -86,7 +86,7 @@ p{margin:0 0 .7em} p:last-child{margin-bottom:0}
   clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
 }
 .section-kicker{
-  margin:24px 2px 9px;font-size:10px;font-weight:700;letter-spacing:.16em;
+  margin:22px 2px 9px;font-size:10px;font-weight:700;letter-spacing:.16em;
   color:var(--ink-soft);text-transform:uppercase;
 }
 :focus-visible{outline:3px solid var(--ju);outline-offset:2px}
@@ -179,7 +179,6 @@ p{margin:0 0 .7em} p:last-child{margin-bottom:0}
 .seal.stamp{animation:stamp .62s cubic-bezier(.3,1.4,.5,1) both}
 .seal.stamp::after{animation:inkRing .7s ease-out .22s both}
 .sh-kakao{animation:kakaoPulse 2.4s ease-in-out 1.1s infinite}
-.who{animation:sweep .55s cubic-bezier(.34,1.5,.64,1) .1s both}
 
 /* 수달도사 */
 .dosa{animation:dosaIn .7s cubic-bezier(.3,1.5,.5,1) .15s both}
@@ -296,28 +295,6 @@ label.f input{
 }
 
 /* 결과 */
-.topbar{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin-top:20px;flex-wrap:wrap;
-  position:sticky;top:8px;z-index:5;
-  padding:6px 7px;border:1.5px solid var(--rule);border-radius:999px;
-  background:var(--sticky);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-}
-.who{border-color:transparent}
-.tday{
-  font-size:12.5px;font-weight:600;
-  background:var(--ju);color:var(--ju-ink);
-  border:1.5px solid var(--ju);border-radius:999px;padding:5px 14px;
-  animation:sweep .5s cubic-bezier(.34,1.5,.64,1) both;
-}
-.who{
-  font-size:12.5px;font-weight:600;color:var(--ink-soft);
-  border:1.5px solid var(--rule);border-radius:999px;padding:5px 13px;
-  display:inline-flex;gap:6px;align-items:center;
-}
-.who b{font-family:"Noto Serif KR",serif;font-weight:900;color:var(--ju);font-size:13px}
-
 /* 프리셋 */
 .presets{
   margin-top:0;background:transparent;border:0;box-shadow:none;padding:0;
@@ -325,15 +302,17 @@ label.f input{
 }
 .pset{display:grid;gap:6px}
 .pl{font-size:10.5px;font-weight:600;letter-spacing:.09em;color:var(--ink-soft)}
-.prow{display:flex;gap:5px;flex-wrap:wrap}
+.prow{display:flex;gap:6px;flex-wrap:wrap}
 .pchip{
   font:inherit;font-size:13px;font-weight:600;cursor:pointer;
   background:var(--hanji-2);color:var(--ink-soft);border:1.5px solid var(--rule);
   border-radius:999px;padding:6px 13px;line-height:1.4;
-  transition:background .15s ease, color .15s ease, border-color .15s ease;
 }
 .pchip:hover{background:var(--hanji-3);color:var(--ink)}
-.pchip[aria-pressed="true"]{background:var(--ju);color:var(--ju-ink);border-color:var(--ju);box-shadow:2px 2px 0 var(--line)}
+.pchip[aria-pressed="true"]{
+  background:var(--ju);color:var(--ju-ink);border-color:var(--ju);
+  box-shadow:2px 2px 0 var(--line);
+}
 .pd{font-size:11.5px;color:var(--ink-soft);word-break:keep-all;line-height:1.6}
 
 .card{
@@ -446,8 +425,6 @@ label.f input{
 .g-tip .tl{font-family:"Noto Serif KR",serif;font-weight:900;font-size:17px;color:var(--hwang);flex:none;line-height:1.35}
 .g-tip .tt{font-size:12.5px;color:var(--ink-soft);word-break:keep-all;line-height:1.65}
 @media(max-width:400px){
-  .topbar{top:6px;padding:5px 6px}
-  .who{font-size:11.5px;padding:4px 10px}
   .gcell{grid-template-columns:92px 1fr;column-gap:10px}
 }
 @media(max-width:400px){
@@ -617,11 +594,6 @@ footer{margin-top:22px;padding-top:16px;border-top:1.5px solid var(--rule);font-
 </section>
 
 <div id="result" class="hidden">
-  <div class="topbar">
-    <span class="tday" id="tday"></span>
-    <span class="who" id="who"></span>
-  </div>
-
   <div class="section-kicker">운세의 초점</div>
   <div class="presets anim-rise">
     <div class="pset">
@@ -1140,7 +1112,6 @@ function render(){
   setSeal("rseal","rsealtxt",day);
   el("rdate").textContent = fmtDate(day.y,day.m,day.d);
   el("rilju").textContent = day.name+"일";
-  el("who").innerHTML = '<b>'+ZH[me.z]+'</b>'+animal+'띠 · '+me.sajuYear+'년생';
   el("csigimg").src = DOSA_IMG;
   el("rzodiac").src = ZODIAC_IMG[me.z];
   el("rzodiac").alt = animal+"띠";
@@ -1198,7 +1169,6 @@ function render(){
     samhapOf(me.z).name+" 기준으로 오늘의 "+Z[day.zi]+"("+ZH[day.zi]+")는 "+sin+" 자리입니다. "+SINSAL[sin].feat+"."));
   D.appendChild(drow("인생 단계",
     stage.n+" 구간("+stage.age+", 한국 나이 "+age+"세) — "+stage.focus+" 쪽에 무게가 실리기 쉽습니다."));
-  el("tday").textContent = "오늘 · " + day.m + "월 " + day.d + "일";
 
   replay(document.querySelector("#result .card"), "anim-card");
   stagger(["glance","deepBox","editbtn","shareBox"]);
