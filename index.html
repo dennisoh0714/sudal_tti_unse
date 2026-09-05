@@ -25,7 +25,7 @@
   img{max-width:100%}
   [hidden]{display:none!important}
 </style>
-<title>수달도사가 봐주는 오늘의 운세</title>
+<title>수달도사의 오늘 일진</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+KR:wght@400;700;900&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -1109,7 +1109,7 @@ function renderGate(){
   if(!state.greet) state.greet = GREET[Math.floor(Math.random()*GREET.length)];
   el("gbubble").textContent = state.greet;
   buildStrip();
-  if(typeof onBdayInput==="function") onBdayInput();
+  if(typeof fillToday==="function") fillToday();
 }
 
 function render(){
@@ -1287,7 +1287,7 @@ function pickForm(){
 
 function toTop(){ try{ window.scrollTo({top:0, behavior:"auto"}); }catch(e){ window.scrollTo(0,0); } }
 function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); toTop(); }
-function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); onBdayInput(); toTop(); }
+function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); }
 
 el("editbtn").addEventListener("click", showGate);
 
@@ -1339,6 +1339,16 @@ function onBdayInput(){
   echo.classList.add("ok");
   echo.textContent = r.y+"년 "+r.m+"월 "+r.d+"일";
 }
+/* 생년월일 칸 기본값 = 오늘 날짜 (숫자 8자리) */
+function todayDigits(){
+  var t=new Date();
+  return ""+t.getFullYear()+String(t.getMonth()+1).padStart(2,"0")+String(t.getDate()).padStart(2,"0");
+}
+function fillToday(){
+  var inp=el("bday"); if(!inp) return;
+  inp.value = prettyDate(todayDigits());
+  onBdayInput();
+}
 
 function submit(){
   var errEl=el("calcerr"), d=digitsOf(el("bday").value);
@@ -1355,6 +1365,8 @@ function submit(){
 el("bday").addEventListener("input", onBdayInput);
 el("calcbtn").addEventListener("click", submit);
 el("bday").addEventListener("keydown", function(e){ if(e.key==="Enter") submit(); });
+/* 기본값이 들어 있으니 누르면 바로 새로 칠 수 있게 전체 선택 */
+el("bday").addEventListener("focus", function(){ var i=this; setTimeout(function(){ try{ i.select(); }catch(e){} },0); });
 
 var tog=el("themetog");
 function applyTheme(t){
@@ -1683,5 +1695,6 @@ renderGate();
    생년월일은 저장하지 않는다. */
 })();
 </script>
+
 </body>
 </html>
