@@ -727,6 +727,29 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
 @media print{.themetog,.presets,.share,.againbtn,.adban,.card .tools{display:none!important}.wrap{max-width:none;padding:0}.card,.glance{box-shadow:none;break-inside:avoid}body{background:white;color:black}}
 </style>
 
+<style id="story-kitsch-v5">
+#shareBox{border:2px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);padding:22px 18px;background:var(--hanji-2);margin-right:5px}
+#shareBox .sh-head{gap:12px;margin-bottom:8px;align-items:center}
+#shareBox .sh-face{width:54px;height:64px;border:2px solid var(--ink);border-radius:10px;transform:rotate(-5deg);box-shadow:3px 3px 0 #f7d74b}
+#shareBox .sh-t{font-size:1.25rem;line-height:1.5;letter-spacing:-.025em}
+.sh-eyebrow{display:block;color:var(--ju);font:600 .75rem/1.6 'IBM Plex Sans KR',sans-serif;letter-spacing:.07em;margin-bottom:3px}
+.sh-intro{font-size:.875rem;color:var(--ink-soft);margin:14px 0 16px}
+#shareBox .sh-insta{background:#2547bd;color:#fff9e9;border:2px solid #202018;box-shadow:3px 3px 0 #202018;display:flex;gap:10px;min-height:58px;padding:12px;font-size:1rem}
+.sh-ratio{font-size:.75rem;border:1px solid currentColor;border-radius:5px;padding:2px 5px;margin-left:auto}
+#shareBox .sh-insta:disabled{opacity:.6;cursor:wait}
+#shareBox .sh-prev{display:grid;gap:14px;background:#e34234;border:2px solid #202018;border-radius:14px;margin-top:20px;padding:16px 14px;color:#fff9e9}
+#shareBox .sh-prev.hidden{display:none}
+.sh-proof{width:100%;display:flex;justify-content:space-between;gap:8px;font-size:.75rem;font-weight:600;letter-spacing:.03em;flex-wrap:wrap}
+#shareBox .sh-prev img{display:block;width:min(100%,340px);height:auto;aspect-ratio:9/16;border:2px solid #202018;border-radius:9px;box-shadow:4px 4px 0 #202018;background:#fff9e9}
+.sh-actions{width:100%;display:grid;grid-template-columns:1fr;gap:10px;margin-top:4px}
+#shareBox .sh-save,.sh-send{min-height:50px;display:flex;align-items:center;justify-content:center;border:2px solid #202018;border-radius:10px;padding:10px 6px;font:600 .875rem/1.5 'IBM Plex Sans KR',sans-serif;text-decoration:none;cursor:pointer;text-align:center}
+#shareBox .sh-save{background:#fff9e9;color:#202018}.sh-send{background:#f7d74b;color:#202018}
+.sh-help{font-size:.8125rem;line-height:1.75;margin:0;word-break:keep-all;overflow-wrap:anywhere}
+.sh-divider{margin:24px 0 14px;padding-top:20px;border-top:2px dashed var(--rule);font-size:.875rem;color:var(--ink-soft);text-align:center}
+#shareBox .sh-kakao{font-size:.9375rem;border:1px solid #202018;margin-top:12px}
+#shareBox .sh-msg{padding:0 2px;font-size:.875rem}
+@media(max-width:360px){#shareBox{padding:20px 14px}#shareBox .sh-t{font-size:1.0625rem}#shareBox .sh-prev{padding:14px 10px}.sh-actions{gap:8px}.sh-ratio{display:none}}
+</style>
 </head>
 <body>
 <main class="wrap" id="main">
@@ -823,23 +846,26 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
   <div class="share" id="shareBox">
     <div class="sh-head">
       <img class="sh-face" id="shFace" alt="" width="42" height="42">
-      <div class="sh-t">수달도사<br>친구에게도 알려주기</div>
+      <div class="sh-t">오늘의 운세 공유하기</div>
     </div>
-    <button class="sh-kakao" type="button" id="shKakao">
-      <span class="bub" aria-hidden="true">💬</span><span>카카오톡으로 보내기</span>
-    </button>
     <button class="sh-insta" type="button" id="shInsta">
-      <span class="bub" aria-hidden="true">◧</span><span>인스타 스토리로 공유</span>
+      <span>인스타그램 스토리 공유하기</span>
+    </button>
+    <div class="sh-prev hidden" id="shPrev">
+      <img id="shPrevImg" alt="내 띠와 오늘의 운세가 담긴 스토리 카드 미리보기" width="1080" height="1920">
+      <div class="sh-actions">
+        <a class="sh-save" id="shSave" download="수달도사-오늘의운세.png">이미지 저장</a>
+      </div>
+      <p class="sh-help">공유 목록에 Instagram이 없으면 이미지를 저장한 뒤 스토리에 올려주세요.</p>
+    </div>
+    <div class="sh-msg" id="shMsg" role="status" aria-live="polite"></div>
+    <button class="sh-kakao" type="button" id="shKakao">
+      <span class="bub" aria-hidden="true">💬</span><span>카카오톡으로 알려주기</span>
     </button>
     <div class="sh-row">
       <button class="sh-mini" type="button" id="shMore">다른 앱으로</button>
       <a class="sh-mini" id="shX" href="#" target="_blank" rel="noopener">X</a>
       <button class="sh-mini" type="button" id="shLink">링크 복사</button>
-    </div>
-    <div class="sh-msg" id="shMsg" role="status" aria-live="polite"></div>
-    <div class="sh-prev hidden" id="shPrev">
-      <img id="shPrevImg" alt="인스타그램 스토리용 이미지 미리보기">
-      <a class="sh-save" id="shSave" download="수달도사-오늘의운세.png">이미지 저장</a>
     </div>
   </div>
 </div>
@@ -1385,6 +1411,13 @@ function render(){
   staggerRows();
 
   var pv=el("shPrev"); if(pv) pv.classList.add("hidden");
+  state.storyGeneration=(state.storyGeneration||0)+1;
+  state.storyFile=null;
+  state.storyPromise=null;
+  prepareStory().catch(function(){});
+  el("shInsta").disabled=false;
+  el("shInsta").removeAttribute("aria-busy");
+  el("shMsg").textContent="";
   el("shFace").src = DOSA_IMG;
   if(typeof refreshShareLinks === "function") refreshShareLinks();
 }
@@ -1737,202 +1770,159 @@ function roundRect(x,a,b,w,h,r){
   x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath();
 }
 function buildStory(){
-  var W=1080,H=1920,P=84;
-  var c=document.createElement("canvas"); c.width=W; c.height=H;
-  var x=c.getContext("2d");
-  var d=state.day, me=state.me, S=STORY;
-
-  x.fillStyle=S.bg; x.fillRect(0,0,W,H);
-  x.fillStyle="rgba(23,20,15,.055)";
-  for(var gy=0;gy<H;gy+=10) for(var gx=0;gx<W;gx+=10) x.fillRect(gx,gy,2,2);
-
-  /* 오방색 띠 */
-  var bw=W/5;
-  S.band.forEach(function(col,i){ x.fillStyle=col; x.fillRect(i*bw,0,bw+1,26); });
-
-  x.textBaseline="top";
-  x.fillStyle=S.ju; x.font="600 34px 'IBM Plex Sans KR', sans-serif";
-  x.fillText("수달도사가 봐주는", P, 104);
-  x.fillStyle=S.ink; x.font="400 70px 'Black Han Sans', sans-serif";
-  x.fillText("오늘의 운세", P, 152);
-
-  /* 낙관 도장 */
-  var sw=196, sh=250, sx=W-P-sw, sy=104;
-  x.save(); x.translate(sx+sw/2, sy+sh/2); x.rotate(-3*Math.PI/180);
-  x.fillStyle=S.ink; roundRect(x,-sw/2+7,-sh/2+7,sw,sh,8); x.fill();
-  x.fillStyle=S.ju;  roundRect(x,-sw/2,-sh/2,sw,sh,8); x.fill();
-  x.strokeStyle=S.juInk; x.lineWidth=5;
-  roundRect(x,-sw/2+16,-sh/2+16,sw-32,sh-32,5); x.stroke();
-  x.fillStyle=S.juInk; x.font="900 84px 'Noto Serif KR', serif";
-  x.textAlign="center";
-  x.fillText(GH[d.gi], 0, -sh/2+34);
-  x.fillText(ZH[d.zi], 0, -sh/2+128);
-  x.restore(); x.textAlign="left";
-
-  var y=396;
-  x.strokeStyle=S.rule; x.lineWidth=2;
-  x.beginPath(); x.moveTo(P,y); x.lineTo(W-P,y); x.stroke();
-
-  y=440;
-  /* 내 띠 그림 */
-  var zw=224, zh=280, im=zodiacImg(me.z);
-  x.save();
-  roundRect(x,P,y,zw,zh,12); x.clip();
-  x.fillStyle=S.card; x.fillRect(P,y,zw,zh);
-  if(im && im.complete && im.naturalWidth){
-    var sc=Math.max(zw/im.naturalWidth, zh/im.naturalHeight);
-    var dw=im.naturalWidth*sc, dh=im.naturalHeight*sc;
-    x.drawImage(im, P+(zw-dw)/2, y+(zh-dh)*0.42, dw, dh);
+  var c=document.createElement("canvas"); c.width=1080; c.height=1920;
+  var x=c.getContext("2d"), d=state.day, me=state.me;
+  var C={red:"#e34234",blue:"#2547bd",yellow:"#f7d74b",paper:"#fff9e9",ink:"#202018",green:"#176d51"};
+  function panel(a,b,w,h,color,r){
+    x.fillStyle=color;roundRect(x,a,b,w,h,r||0);x.fill();
   }
-  x.restore();
-  x.strokeStyle=S.rule; x.lineWidth=2.5; roundRect(x,P,y,zw,zh,12); x.stroke();
-
-  var tx=P+zw+34;
-  x.fillStyle=S.soft; x.font="600 30px 'IBM Plex Sans KR', sans-serif";
-  x.fillText(fmtDate(d.y,d.m,d.d), tx, y+26);
-  x.fillStyle=S.ink; x.font="400 68px 'Black Han Sans', sans-serif";
-  x.fillText(d.name+"일", tx, y+68);
-
-  /* 띠 배지 */
-  var badge = ZH[me.z]+" "+ZANIMAL[me.z]+"띠";
-  x.font="600 28px 'IBM Plex Sans KR', sans-serif";
-  var bwd=x.measureText(badge).width+44;
-  x.strokeStyle=S.rule; x.lineWidth=2.5;
-  roundRect(x,tx,y+168,bwd,52,26); x.stroke();
-  x.fillStyle=S.soft; x.fillText(badge, tx+22, y+182);
-
-  /* 본문 — 서명 자리를 넘지 않도록 글자 크기를 맞춘다 */
-  var bodyTop=y+zh+52, maxW=W-P*2, footLimit=H-214, dosH=226;
-  var SZ=[[38,68],[34,60],[30,54],[27,49],[24,42],[22,38],[20,34],[18,30],[16,27]];
-  var fs,lh,lines,ol,by,dy,fits=false;
-  for(var si=0; si<SZ.length; si++){
-    fs=SZ[si][0]; lh=SZ[si][1];
-    x.font="400 "+fs+"px 'Noto Serif KR', serif";
-    lines=wrapLines(x, state.bodyText, maxW);
-    x.font="600 38px 'IBM Plex Sans KR', sans-serif";
-    ol=wrapLines(x, state.oneText, maxW).slice(0,2);
-    by=bodyTop+lines.length*lh+30;
-    dy=by+76+ol.length*52+28;
-    if(dy+dosH<=footLimit){ fits=true; break; }
+  function txt(t,a,b,size,color,weight,font){
+    x.textAlign="left";x.textBaseline="top";x.fillStyle=color;
+    x.font=(weight||"600")+" "+size+"px '"+(font||"IBM Plex Sans KR")+"', sans-serif";
+    x.fillText(t,a,b);
   }
-  if(!fits){
-    var over=Math.ceil((dy+dosH-footLimit)/lh);
-    lines=lines.slice(0, Math.max(4, lines.length-over));
-    by=bodyTop+lines.length*lh+30;
-    dy=by+76+ol.length*52+28;
+  function textBlock(t,a,b,w,h,size,min,color,font){
+    var lines,lh;
+    do{
+      x.font="500 "+size+"px '"+(font||"IBM Plex Sans KR")+"', sans-serif";
+      lines=wrapLines(x,t,w);lh=Math.round(size*1.55);
+      if(lines.length*lh<=h)break;
+      size-=1;
+    }while(size>=min);
+    // Show a deliberate ellipsis only for unexpectedly long future content.
+    var limit=Math.max(1,Math.floor(h/lh));
+    if(lines.length>limit){
+      lines=lines.slice(0,limit);
+      var last=lines[limit-1];
+      while(last.length && x.measureText(last+"…").width>w)last=last.slice(0,-1);
+      lines[limit-1]=last+"…";
+    }
+    lines.forEach(function(line,i){txt(line,a,b+i*lh,size,color,"500",font);});
   }
-  x.fillStyle=S.ink; x.font="400 "+fs+"px 'Noto Serif KR', serif";
-  lines.forEach(function(ln,i){ x.fillText(ln, P, bodyTop+i*lh); });
-
-  /* 한 줄 요약 */
-  x.setLineDash([9,9]); x.strokeStyle=S.rule; x.lineWidth=2;
-  x.beginPath(); x.moveTo(P,by); x.lineTo(W-P,by); x.stroke(); x.setLineDash([]);
-  x.fillStyle=S.ju; x.font="600 30px 'IBM Plex Sans KR', sans-serif";
-  x.fillText("한 줄 요약", P, by+30);
-  x.fillStyle=S.ink; x.font="600 38px 'IBM Plex Sans KR', sans-serif";
-  ol.forEach(function(ln,i){ x.fillText(ln, P, by+76+i*52); });
-
-  /* 하면 좋은 것 / 미룰 것 */
-  var colw=(maxW-24)/2;
-  [[state.goodText,"하면 좋은 것",S.band[0],P],[state.avoidText,"미룰 것",S.ju,P+colw+24]].forEach(function(g){
-    x.fillStyle=S.card; roundRect(x,g[3],dy,colw,dosH,10); x.fill();
-    x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,g[3],dy,colw,dosH,10); x.stroke();
-    x.fillStyle=g[2]; roundRect(x,g[3]+22,dy+26,16,16,4); x.fill();
-    x.fillStyle=S.soft; x.font="600 24px 'IBM Plex Sans KR', sans-serif";
-    x.fillText(g[1], g[3]+50, dy+26);
-    x.fillStyle=S.ink; x.font="600 31px 'IBM Plex Sans KR', sans-serif";
-    wrapLines(x, g[0], colw-44).slice(0,3).forEach(function(ln,i){
-      x.fillText(ln, g[3]+22, dy+76+i*44);
-    });
+  function photo(im,a,b,w,h){
+    x.save();roundRect(x,a,b,w,h,14);x.clip();
+    panel(a,b,w,h,C.paper,14);
+    if(im && im.complete && im.naturalWidth){
+      var scale=Math.max(w/im.naturalWidth,h/im.naturalHeight);
+      x.drawImage(im,a+(w-im.naturalWidth*scale)/2,b+(h-im.naturalHeight*scale)*.35,im.naturalWidth*scale,im.naturalHeight*scale);
+    }
+    x.restore();
+  }
+  panel(0,0,1080,1920,C.red);
+  // Graphic print border stays outside the story's main reading area.
+  x.fillStyle="rgba(32,32,24,.10)";
+  for(var gy=16;gy<1920;gy+=24)for(var gx=16;gx<1080;gx+=24)x.fillRect(gx,gy,3,3);
+  [104,1784].forEach(function(y){
+    for(var i=0;i<18;i++)panel(i*60,y,60,30,i%2?C.paper:C.ink);
   });
-
-  /* 오늘의 기운 · 힘 · 신살 — 자리가 남으면 한 줄 더 */
-  var mks=state.marks||[], my=dy+dosH+26, mh=132;
-  if(mks.length===3 && my+mh<=H-236){
-    var mw=(maxW-24)/3;
-    mks.forEach(function(m,i){
-      var mx=P+i*(mw+12);
-      x.fillStyle=S.card; roundRect(x,mx,my,mw,mh,10); x.fill();
-      x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,mx,my,mw,mh,10); x.stroke();
-      x.fillStyle=S.soft; x.font="600 22px 'IBM Plex Sans KR', sans-serif";
-      x.fillText(m[0], mx+20, my+22);
-      x.fillStyle=S.ju; x.font="900 40px 'Noto Serif KR', serif";
-      x.fillText(m[1], mx+20, my+58);
-      x.fillStyle=S.ink; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
-      wrapLines(x, m[2], mw-40).slice(0,1).forEach(function(ln){ x.fillText(ln, mx+20, my+104); });
-    });
-  }
-
-  /* 발 — 수달도사 서명 */
-  x.strokeStyle=S.rule; x.lineWidth=2;
-  x.beginPath(); x.moveTo(P,H-192); x.lineTo(W-P,H-192); x.stroke();
-  var dw=88, dh=110, dy2=H-168;
-  x.save();
-  roundRect(x,P,dy2,dw,dh,10); x.clip();
-  x.fillStyle=S.card; x.fillRect(P,dy2,dw,dh);
-  if(DOSA && DOSA.complete && DOSA.naturalWidth){
-    var dsc=Math.max(dw/DOSA.naturalWidth, dh/DOSA.naturalHeight);
-    var ddw=DOSA.naturalWidth*dsc, ddh=DOSA.naturalHeight*dsc;
-    x.drawImage(DOSA, P+(dw-ddw)/2, dy2+(dh-ddh)*0.30, ddw, ddh);
-  }
+  panel(64,194,966,1540,C.ink,28);
+  panel(50,180,966,1540,C.paper,28);
+  txt("SOODAL DOSA  /  DAILY FORTUNE",92,218,25,C.blue,"600");
+  txt("오늘의 운세",88,266,86,C.ink,"400","Black Han Sans");
+  // A rotated date-label, inspired by a printed ticket.
+  x.save();x.translate(866,308);x.rotate(.065);
+  panel(-100,-43,200,86,C.yellow,8);
+  txt(String(d.m).padStart(2,"0")+" / "+String(d.d).padStart(2,"0"),-77,-23,38,C.ink);
   x.restore();
-  x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,P,dy2,dw,dh,10); x.stroke();
-
-  var fx=P+dw+24;
-  x.fillStyle=S.ju; x.font="600 27px 'IBM Plex Sans KR', sans-serif";
-  x.fillText("수달도사가 오늘의 운세 봐드립니다", fx, dy2+14);
-  x.fillStyle=S.soft; x.font="600 24px 'IBM Plex Sans KR', sans-serif";
-  x.fillText("생년월일만 넣으시면 됩니다", fx, dy2+50);
-  x.fillStyle=S.ink; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
-  x.fillText((pageUrl() ? new URL(pageUrl()).hostname : "@cafe_dennis"), fx, dy2+84);
+  panel(88,386,890,224,C.blue,18);
+  photo(zodiacImg(me.z),108,404,152,188);
+  txt(fmtDate(d.y,d.m,d.d),286,416,28,C.paper);
+  txt(d.name+"일",282,462,56,C.paper,"400","Black Han Sans");
+  txt(ZANIMAL[me.z]+"띠의 오늘",286,542,30,C.yellow);
+  x.save();x.translate(888,492);x.rotate(-.08);
+  panel(-57,-78,114,156,C.red,8);
+  x.strokeStyle=C.paper;x.lineWidth=3;roundRect(x,-47,-68,94,136,4);x.stroke();
+  txt(GH[d.gi],-28,-58,54,C.paper,"900","Noto Serif KR");
+  txt(ZH[d.zi],-28,8,54,C.paper,"900","Noto Serif KR");x.restore();
+  panel(88,642,890,218,C.yellow,18);
+  txt("오늘, 이 한마디",114,664,28,C.ink);
+  textBlock(state.oneText,114,711,838,132,45,32,C.ink);
+  txt("수달도사의 풀이",94,896,29,C.red);
+  textBlock(state.bodyText,94,951,874,337,36,27,C.ink,"Noto Serif KR");
+  // Two equal action tiles: generous gutters and predictable text bounds.
+  [[state.goodText,"하면 좋은 것",C.green,88],[state.avoidText,"잠시 미룰 것",C.red,543]].forEach(function(v){
+    panel(v[3],1320,435,206,v[2],16);
+    txt(v[1],v[3]+23,1341,27,C.paper);
+    textBlock(v[0],v[3]+23,1390,389,115,33,26,C.paper);
+  });
+  x.strokeStyle=C.ink;x.lineWidth=2;x.setLineDash([8,9]);
+  x.beginPath();x.moveTo(88,1562);x.lineTo(978,1562);x.stroke();x.setLineDash([]);
+  photo(DOSA,92,1590,74,94);
+  txt("수달도사가 봐드립니다",184,1597,31,C.blue);
+  txt("@cafe_dennis",184,1642,27,C.ink);
+  txt("오늘을 위한 작은 참고",686,1646,24,C.ink);
   return c;
 }
-function shareStory(){
-  shMsg("이미지를 만드는 중이에요…");
-  var go=function(){
-    if(go.started) return; go.started=true;
-    var canvas;
-    try{ canvas=buildStory(); }
-    catch(err){ shMsg("이미지를 만들지 못했습니다. 잠시 뒤 다시 눌러주세요."); return; }
-    canvas.toBlob(function(blob){
-      if(!blob){ shMsg("이미지를 만들지 못했습니다."); return; }
-      var file=null;
-      try{ file=new File([blob],"수달도사-오늘의운세.png",{type:"image/png"}); }catch(e){}
-      if(state.storyUrl) URL.revokeObjectURL(state.storyUrl);
-      var url=state.storyUrl=URL.createObjectURL(blob);
-      el("shPrevImg").src=url;
-      el("shSave").href=url;
-      el("shPrev").classList.remove("hidden");
-      if(file && navigator.canShare && navigator.canShare({files:[file]})){
-        navigator.share({files:[file], title:"수달도사의 오늘 운세"})
-          .then(function(){ shMsg("공유 창에서 인스타그램 · 스토리를 골라주세요."); })
-          .catch(function(err){
-            if(err && err.name==="AbortError") { shMsg(""); return; }
-            shMsg("이미지를 저장한 뒤 인스타그램 스토리에 사진으로 올려주세요.");
-          });
-      } else {
-        shMsg("이미지가 준비됐습니다. 저장한 뒤 인스타그램 스토리에 사진으로 올려주세요.");
-      }
-    },"image/png");
-  };
-  var need=[zodiacImg(state.me.z), DOSA];
-  var waitImg=function(next){
-    var left=0, done=function(){ if(--left<=0) next(); };
-    need.forEach(function(g){ if(!g.complete) left++; });
-    if(!left) return next();
-    need.forEach(function(g){
-      if(g.complete) return;
-      g.addEventListener("load", done, {once:true});
-      g.addEventListener("error", done, {once:true});
+function prepareStory(){
+  if(state.storyPromise) return state.storyPromise;
+  var generation=state.storyGeneration;
+  function waitImage(im){
+    return new Promise(function(resolve){
+      if(im.complete) return resolve();
+      im.addEventListener("load",resolve,{once:true});
+      im.addEventListener("error",resolve,{once:true});
+      setTimeout(resolve,2500);
     });
-    setTimeout(next, 2500);
-  };
-  if(document.fonts && document.fonts.ready)
-    document.fonts.ready.then(function(){ waitImg(go); }, function(){ waitImg(go); });
-  else waitImg(go);
+  }
+  var fonts=document.fonts ? document.fonts.ready : Promise.resolve();
+  state.storyPromise=Promise.all([fonts,waitImage(zodiacImg(state.me.z)),waitImage(DOSA)]).then(function(){
+    if(generation!==state.storyGeneration) return null;
+    return new Promise(function(resolve,reject){
+      try{
+        buildStory().toBlob(function(blob){
+          if(generation!==state.storyGeneration) return resolve(null);
+          if(!blob) return reject(new Error("Image unavailable"));
+          if(state.storyUrl) URL.revokeObjectURL(state.storyUrl);
+          state.storyUrl=URL.createObjectURL(blob);
+          try{state.storyFile=new File([blob],"수달도사-오늘의운세.png",{type:"image/png"});}catch(e){state.storyFile=null;}
+          resolve({file:state.storyFile,url:state.storyUrl});
+        },"image/png");
+      }catch(e){reject(e);}
+    });
+  }).catch(function(err){
+    if(generation===state.storyGeneration) state.storyPromise=null;
+    throw err;
+  });
+  return state.storyPromise;
+}
+function shareStory(){
+  if(!state.me || el("shInsta").disabled) return;
+  var generation=state.storyGeneration;
+  var button=el("shInsta");
+  el("shPrev").classList.add("hidden");
+  shMsg("");
+  function done(){button.disabled=false;button.removeAttribute("aria-busy");}
+  function fallback(item){
+    if(generation!==state.storyGeneration) return;
+    el("shPrevImg").src=item.url;
+    el("shSave").href=item.url;
+    el("shPrev").classList.remove("hidden");
+    shMsg("직접 공유가 지원되지 않아 이미지 저장으로 안내해 드려요.");
+    done();
+  }
+  function send(item){
+    if(!item || generation!==state.storyGeneration){done();return;}
+    try{
+      if(item.file && navigator.share && navigator.canShare && navigator.canShare({files:[item.file]})){
+        // Cached image lets this run inside the original button tap.
+        navigator.share({files:[item.file],title:"수달도사의 오늘 운세"}).then(done).catch(function(err){
+          if(err && err.name==="AbortError"){done();return;}
+          fallback(item);
+        });
+      }else{fallback(item);}
+    }catch(err){fallback(item);}
+  }
+  button.disabled=true;button.setAttribute("aria-busy","true");
+  if(state.storyUrl && state.storyFile){
+    send({file:state.storyFile,url:state.storyUrl});
+  }else{
+    shMsg("공유할 이미지를 준비하고 있어요…");
+    prepareStory().then(function(item){shMsg("");send(item);}).catch(function(){
+      done();shMsg("이미지를 만들지 못했습니다. 다시 눌러주세요.");
+    });
+  }
 }
 el("shInsta").addEventListener("click", shareStory);
-
 function refreshShareLinks(){
   var u = encodeURIComponent(pageUrl());
   var t = encodeURIComponent(INVITE_HEAD + " " + inviteLine());
