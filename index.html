@@ -647,9 +647,89 @@ details.deep:not([open])>summary .mk::after{content:"보기"}
 
 footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-size:12px;color:var(--ink-soft);line-height:1.8;word-break:keep-all}
 </style>
+
+<style id="mobile-layout-v4">
+/* Mobile edition: one responsive layout layer, original artwork and calculation retained. */
+:root{--radius:12px;--shadow-sm:none;--shadow:none}
+html{scroll-behavior:auto;scroll-padding-top:24px}
+body{font-size:1rem;line-height:1.7;background-image:none;text-rendering:optimizeLegibility}
+.wrap{width:100%;max-width:600px;margin:auto;padding:24px max(16px,env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+button,a,input,summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button,a,summary{overflow-wrap:anywhere}
+button,input{font-family:inherit}
+:focus-visible{outline:3px solid var(--ju);outline-offset:4px}
+header.top{align-items:center;border:0;padding:0 0 16px;gap:12px}
+.brand{min-width:0}.brand .kicker{font-size:.875rem;margin:0 0 4px;letter-spacing:.02em}
+.brand .name{font-size:2rem;line-height:1.3;letter-spacing:-.035em}
+.themetog{min-height:44px;border:1px solid var(--rule);border-radius:999px;padding:8px 12px;font-size:.875rem;box-shadow:none;white-space:nowrap}
+.obang{height:5px;margin:0;border:0;border-radius:4px}
+.tagline{font-size:.875rem;margin:14px 0 0;line-height:1.7}
+.gate,.card{border:1px solid var(--rule);border-radius:20px;background:var(--hanji-2);box-shadow:0 8px 28px rgba(0,0,0,.055);padding:24px;overflow:visible}
+.gate{margin-top:20px;border-top:4px solid var(--ju);display:flex;flex-direction:column}
+.gate .ghead{margin-bottom:18px;padding-right:66px}
+.gate .ghead .t1{font-size:.875rem}.gate .ghead .t2{font-size:1.875rem;line-height:1.4}
+.gate .stampwrap,.card .stampwrap{top:22px;right:22px}
+.gate .seal,.card .seal{width:46px;height:62px;box-shadow:2px 2px 0 var(--line)}
+.gate .seal .cols,.card .seal .cols{font-size:23px}
+.gate .lead{gap:14px;margin-bottom:22px;align-items:center}
+.dosa{width:78px;height:100px;border-radius:14px}
+.gate .bubble{background:transparent;border:0;padding:0;font-size:1rem;line-height:1.75;border-radius:0}
+.gate .bubble::before,.gate .bubble::after{display:none}
+label.f{font-size:.875rem;gap:10px}.flab{justify-content:space-between;flex-wrap:wrap}.flab em{font-size:.75rem;color:var(--ink-soft);background:var(--hanji);padding:3px 9px;border-radius:20px}
+label.f input{min-height:64px;font-size:1.625rem;padding:12px;border:1.5px solid var(--rule);border-radius:12px;letter-spacing:.065em;background:var(--hanji);caret-color:var(--ju)}
+label.f input::placeholder{opacity:.65;font-size:1.25rem;letter-spacing:.02em}
+label.f input:focus{outline:3px solid var(--ju-tint);outline-offset:2px;border-color:var(--ju)}
+label.f input[aria-invalid="true"]{border-color:var(--ju)}
+.bday-echo{font-size:.875rem;min-height:1.7em;margin-top:8px;font-weight:500}
+.gate .tools{margin-top:12px!important}.gate .tools:last-child{margin-top:0!important}
+.btn{font-size:.875rem;min-height:48px;box-shadow:none;border:1px solid var(--rule);border-radius:12px;padding:11px 16px}
+.btn.big{min-height:56px;font-size:1.125rem;border:0;box-shadow:0 4px 12px var(--ju-tint)}
+.hint.boxed{order:5;margin:14px 0 0;background:none;border:0;padding:0;text-align:center;font-size:.8125rem;line-height:1.7}
+.zstrip{order:6;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-top:20px;padding-top:16px}.zstrip img{opacity:.8;border-radius:5px}
+.err{font-size:.875rem;margin-top:10px}
+.section-kicker{font-size:.875rem;font-weight:600;color:var(--ink-soft);margin:26px 2px 12px}
+.presets{gap:8px}.pl{display:none}.prow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pchip{font-size:.875rem;min-height:46px;padding:9px 6px;border-radius:12px;border:1px solid var(--rule);box-shadow:none!important}
+.pd{font-size:.875rem;line-height:1.7;margin-top:2px}
+.card .head{gap:14px;display:grid;grid-template-columns:64px minmax(0,1fr);padding:0 54px 18px 0;margin-bottom:18px;min-height:90px}
+.zodiac{width:64px;height:82px;border-radius:10px}.card .head .d{font-size:.8125rem;overflow-wrap:anywhere}
+.card .head .g{font-size:1.75rem;line-height:1.4}.card .head .zname{font-size:.875rem}
+.speaker{gap:8px;margin-bottom:16px;flex-wrap:wrap}.speaker img{width:36px;height:36px;box-shadow:none;border-width:1px}.speaker .nm{font-size:1rem}.speaker .says{font-size:.875rem;margin:0}
+.card .body{font-size:1.0625rem;line-height:1.95;word-break:keep-all;overflow-wrap:anywhere;letter-spacing:0}
+.card .body.speech{background:none;border:0;border-radius:0;padding:0}.card .body.speech::before,.card .body.speech::after{display:none}
+.ln+.ln{margin-top:.65em}.ln.blank{height:.35em}
+.card .oneline{font-size:1rem;padding:16px;border-radius:0 12px 12px 0;margin-top:22px;border-left-width:3px;line-height:1.75}
+.card .tools{gap:10px;margin-top:18px}#copybtn{background:var(--hanji);color:var(--ink);flex:1}.count{font-size:.8125rem}
+.glance{border:1px solid var(--rule);border-radius:16px}.g-head{font-size:.875rem;padding:15px 18px}
+.gcell{padding:16px 18px;grid-template-columns:100px minmax(0,1fr);column-gap:14px;row-gap:4px}
+.gcell .lab{font-size:.8125rem}.gcell .mark{font-size:1.125rem;flex-wrap:wrap;gap:4px}.gcell .mark em{font-size:1rem}.gcell .txt{font-size:.9375rem;line-height:1.75;overflow-wrap:anywhere}
+.g-do{grid-template-columns:1fr}.gd{padding:16px 18px;border-right:0;gap:6px}.gd.good{border-right:0;border-bottom:1px solid var(--rule)}
+.gd .k{font-size:.875rem}.gd .v{font-size:1rem;line-height:1.7}.g-tip{padding:16px 18px}.g-tip .tt{font-size:.9375rem;line-height:1.8}
+details.deep{border:1px solid var(--rule);border-radius:14px}details.deep>summary{min-height:54px;font-size:.9375rem;padding:14px 18px}details.deep>summary .mk{font-size:.8125rem}
+.deep-body{font-size:.9375rem;line-height:1.85;padding:18px;overflow-wrap:anywhere}.deep-body .k{font-size:.875rem}
+.againbtn{box-shadow:none;border:1px solid var(--rule);border-radius:14px;min-height:76px;padding:16px;gap:12px}.againbtn .ag-1{font-size:1rem;line-height:1.6}.againbtn .ag-2{font-size:.875rem;line-height:1.6}.againbtn .ag-ic{width:32px;height:32px;border-width:1px}
+.share{background:var(--hanji-2);color:var(--ink);box-shadow:none;border:1px solid var(--rule);border-radius:20px;padding:22px;margin-top:24px}
+.sh-head{gap:12px}.sh-t{font-size:1.125rem;line-height:1.5}.sh-face{border:1px solid var(--rule)}
+.sh-kakao,.sh-insta{min-height:54px;font-family:inherit;font-size:1rem;font-weight:600;border:0;box-shadow:none;border-radius:12px;padding:13px}
+.sh-insta{background:#713cb1;color:#fff;margin-top:10px}.sh-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.sh-mini{display:flex;justify-content:center;align-items:center;min-width:0;min-height:46px;font-size:.875rem;padding:9px 6px;color:var(--ink);border:1px solid var(--rule);background:var(--hanji);border-radius:10px}
+.sh-msg{font-size:.875rem;line-height:1.7;margin-top:12px;min-height:0}.sh-msg:empty{display:none}
+.sh-prev{justify-items:center}.sh-prev img{width:min(220px,100%);border:1px solid var(--rule);border-radius:12px}.sh-save{display:flex;align-items:center;min-height:48px;border:1px solid var(--rule);color:var(--ink);font-size:.9375rem;padding:10px 18px;border-radius:10px}
+.adban{border:1px solid var(--rule);border-radius:16px;box-shadow:none;margin-top:26px}.adban:hover{box-shadow:none}.ad-bar{padding:16px;border:0}.ad-1{font-size:1rem;line-height:1.5}.ad-2{font-size:.8125rem;line-height:1.6}.ad-go{width:30px;height:30px;border-width:1px}
+footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
+/* Stop decorative motion so every paragraph is available immediately. */
+*,*::before,*::after{animation:none!important}
+.btn.big::after,.sh-kakao::after,.seal::before,.seal::after{display:none}
+.btn:hover,.againbtn:hover,.sh-insta:hover,.pchip:hover,.themetog:hover{transform:none}
+@media(min-width:720px){.wrap{padding-top:40px;max-width:640px}.gate,.card{padding:30px}.gate .stampwrap,.card .stampwrap{right:28px;top:28px}.brand .name{font-size:2.5rem}.gate .lead{gap:20px}.dosa{width:90px;height:114px}.g-do{grid-template-columns:1fr 1fr}.gd.good{border-right:1px solid var(--rule);border-bottom:0}}
+@media(max-width:370px){.wrap{padding-left:12px;padding-right:12px}.gate,.card,.share{padding:18px}.brand .name{font-size:1.75rem}.themetog{padding:8px 10px}.gate .lead{gap:12px}.dosa{width:60px;height:80px}.gate .bubble{font-size:.9375rem}.gate .stampwrap,.card .stampwrap{right:16px;top:18px}.card .head{grid-template-columns:48px minmax(0,1fr);gap:10px;padding-right:48px}.zodiac{width:48px;height:66px}.card .head .g{font-size:1.5rem}.card .seal{width:38px;height:54px}.card .seal .cols{font-size:20px}.gcell{grid-template-columns:84px minmax(0,1fr);padding:14px;column-gap:10px}.zstrip{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+@media print{.themetog,.presets,.share,.againbtn,.adban,.card .tools{display:none!important}.wrap{max-width:none;padding:0}.card,.glance{box-shadow:none;break-inside:avoid}body{background:white;color:black}}
+</style>
+
 </head>
 <body>
-<div class="wrap">
+<main class="wrap" id="main">
 
 <header class="top">
   <div class="brand">
@@ -659,7 +739,7 @@ footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-
   <button class="themetog" id="themetog" type="button" aria-pressed="false">다크모드</button>
 </header>
 <div class="obang" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<p class="tagline" id="tagline">수달도사가 여러분의 오늘 운세가 어떻게 되는지 알려드립니다.</p>
+<p class="tagline" id="tagline">오늘의 기운과 나의 띠를 함께 살펴봅니다.</p>
 
 <section class="gate anim-rise" id="gate" aria-label="생년월일 입력">
   <div class="stampwrap"><div class="seal stamp" id="gseal"><div class="cols" id="gsealtxt"><span>庚</span><span>辰</span></div></div></div>
@@ -673,17 +753,17 @@ footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-
   </div>
   <label class="f">
     <span class="flab">생년월일 <em>숫자 8자리</em></span>
-    <input type="text" id="bday" inputmode="numeric" pattern="[0-9]*" maxlength="12"
-           placeholder="19820715" autocomplete="off" enterkeyhint="go" aria-describedby="bdayEcho">
+    <input type="text" id="bday" inputmode="numeric"  maxlength="12"
+           placeholder="예: 1982.07.15" autocomplete="off" enterkeyhint="go" aria-describedby="bdayEcho calcerr">
   </label>
   <div class="bday-echo" id="bdayEcho" aria-live="polite">년 · 월 · 일 순서로 숫자만 눌러주세요</div>
-  <p class="hint boxed">생년월일은 양력으로, 숫자만 눌러주시면 됩니다. 입력해 주신 날짜는 이 브라우저에만 잠시 머물 뿐, 어디로도 전송되지 않으니 안심하고 넣어주세요.</p>
+  <p class="hint boxed">양력 생년월일을 입력해 주세요.<br>생년월일은 저장하거나 서버로 전송하지 않습니다.</p>
   <div class="zstrip" id="zstrip" aria-hidden="true"></div>
   <div class="tools" style="margin-top:15px"><button class="btn ju big" type="button" id="calcbtn">내 운세 보기</button></div>
   <div class="tools" style="margin-top:9px"><span class="err hidden" id="calcerr" role="alert"></span></div>
 </section>
 
-<div id="result" class="hidden">
+<div id="result" class="hidden" tabindex="-1" aria-label="오늘의 운세 결과">
   <div class="section-kicker">운세의 초점</div>
   <div class="presets anim-rise">
     <div class="pset">
@@ -712,7 +792,7 @@ footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-
     <div class="oneline" id="rone"></div>
     <div class="tools">
       <button class="btn ju" type="button" id="copybtn">운세 문구 복사</button>
-      <span class="count" id="copycount"></span>
+      <span class="count" id="copycount" role="status"></span>
     </div>
   </div>
 
@@ -756,7 +836,7 @@ footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-
       <a class="sh-mini" id="shX" href="#" target="_blank" rel="noopener">X</a>
       <button class="sh-mini" type="button" id="shLink">링크 복사</button>
     </div>
-    <div class="sh-msg" id="shMsg"></div>
+    <div class="sh-msg" id="shMsg" role="status" aria-live="polite"></div>
     <div class="sh-prev hidden" id="shPrev">
       <img id="shPrevImg" alt="인스타그램 스토리용 이미지 미리보기">
       <a class="sh-save" id="shSave" download="수달도사-오늘의운세.png">이미지 저장</a>
@@ -780,7 +860,7 @@ footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-
   운세는 정해진 미래가 아니라 오늘을 어떻게 쓸지 정하는 참고입니다.
 </footer>
 
-</div>
+</main>
 
 <script>
 (function(){
@@ -1402,8 +1482,8 @@ function pickForm(){
 }
 
 function toTop(){ try{ window.scrollTo({top:0, behavior:"auto"}); }catch(e){ window.scrollTo(0,0); } }
-function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); toTop(); }
-function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); }
+function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); el("bday").blur(); el("result").focus({preventScroll:true}); toTop(); }
+function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); el("bday").focus({preventScroll:true}); }
 
 el("editbtn").addEventListener("click", showGate);
 
@@ -1440,8 +1520,13 @@ function parseBday(d){
   return {y:y, m:m, d:dd};
 }
 function onBdayInput(){
-  var inp=el("bday"), d=digitsOf(inp.value);
+  var inp=el("bday"), raw=inp.value, pos=inp.selectionStart, d=digitsOf(raw);
+  var digitPos=digitsOf(raw.slice(0,pos)).length;
   inp.value=prettyDate(d);
+  var newPos=0, seen=0;
+  while(newPos<inp.value.length && seen<digitPos){if(/[0-9]/.test(inp.value[newPos])) seen++;newPos++;}
+  try{inp.setSelectionRange(newPos,newPos);}catch(e){}
+  inp.removeAttribute("aria-invalid");
   var echo=el("bdayEcho");
   el("calcerr").classList.add("hidden");
   if(state.bdayFresh){
@@ -1469,8 +1554,9 @@ function todayDigits(){
 }
 function fillToday(){
   var inp=el("bday"); if(!inp) return;
-  state.bdayFresh = true;
-  inp.value = prettyDate(todayDigits());
+  state.bdayFresh = false;
+  inp.value = "";
+  inp.removeAttribute("aria-invalid");
   onBdayInput();
 }
 /* 기본값(오늘 날짜)이 들어 있는 상태에서 처음 숫자를 누르면 칸을 비우고 시작한다.
@@ -1487,7 +1573,7 @@ function submit(){
   var r=state.bdayFresh ? {err:"오늘 날짜가 들어 있어요. 태어나신 날을 숫자 여덟 자리로 눌러주세요. 예) 19820715"} : parseBday(d);
   if(r.err){
     errEl.textContent = (!state.bdayFresh && d.length!==8) ? "생년월일을 숫자 여덟 자리로 넣어주세요. 예) 19820715" : r.err;
-    errEl.classList.remove("hidden"); el("bday").focus(); return;
+    errEl.classList.remove("hidden"); el("bday").setAttribute("aria-invalid","true"); el("bday").focus(); return;
   }
   errEl.classList.add("hidden");
   state.date = new Date();
@@ -1511,7 +1597,7 @@ el("bday").addEventListener("paste", clearIfFresh);
 el("bday").addEventListener("input", onBdayInput);
 el("calcbtn").addEventListener("click", submit);
 el("bday").addEventListener("keydown", function(e){
-  if(e.key==="Enter"){ submit(); return; }
+  if(e.key==="Enter"){ e.preventDefault(); submit(); return; }
   if(e.key && e.key.length===1 && e.key>="0" && e.key<="9") clearIfFresh();
 });
 
@@ -1542,7 +1628,7 @@ el("copybtn").addEventListener("click", function(){
     var ta=document.createElement("textarea");
     ta.value=txt; ta.style.position="fixed"; ta.style.opacity="0";
     document.body.appendChild(ta); ta.select();
-    try{ document.execCommand("copy"); done(); }
+    try{ if(!document.execCommand("copy")) throw new Error("copy"); done(); }
     catch(err){ target.textContent="복사가 안 되면 길게 눌러 선택해 주세요"; }
     document.body.removeChild(ta);
   }
@@ -1551,7 +1637,7 @@ el("copybtn").addEventListener("click", function(){
 });
 
 /* 공유 */
-function pageUrl(){ return location.href.split("#")[0]; }
+function pageUrl(){ return /^https?:$/.test(location.protocol) ? location.href.split("#")[0] : ""; }
 /* 친구에게 보내는 건 내 운세가 아니라 초대 문구 */
 var INVITE=[
   "생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드려요.",
@@ -1608,18 +1694,19 @@ function nativeShare(onNo){
 el("shKakao").addEventListener("click", function(){
   nativeShare(function(){
     copyTo(shareText(),
-      function(){ shMsg("운세와 링크를 복사했습니다. 카카오톡 대화창에 붙여넣어 주세요."); },
+      function(){ shMsg("초대 문구와 링크를 복사했습니다. 카카오톡 대화창에 붙여넣어 주세요."); },
       function(){ shMsg("복사가 안 되면 운세 글을 길게 눌러 선택한 뒤 복사해 주세요."); });
   });
 });
 el("shMore").addEventListener("click", function(){
   nativeShare(function(){
     copyTo(shareText(),
-      function(){ shMsg("운세와 링크를 복사했습니다. 원하는 앱에 붙여넣어 주세요."); },
+      function(){ shMsg("초대 문구와 링크를 복사했습니다. 원하는 앱에 붙여넣어 주세요."); },
       function(){ shMsg("복사가 안 되면 운세 글을 길게 눌러 선택한 뒤 복사해 주세요."); });
   });
 });
 el("shLink").addEventListener("click", function(){
+  if(!pageUrl()){shMsg("링크 공유는 웹에 게시한 페이지에서 사용할 수 있어요. 지금은 운세 이미지로 공유해 주세요.");return;}
   copyTo(pageUrl(),
     function(){ shMsg("링크를 복사했습니다."); },
     function(){ shMsg("링크 복사가 안 되면 주소창의 주소를 직접 복사해 주세요."); });
@@ -1666,7 +1753,7 @@ function buildStory(){
   x.textBaseline="top";
   x.fillStyle=S.ju; x.font="600 34px 'IBM Plex Sans KR', sans-serif";
   x.fillText("수달도사가 봐주는", P, 104);
-  x.fillStyle=S.ink; x.font="400 82px 'Black Han Sans', sans-serif";
+  x.fillStyle=S.ink; x.font="400 70px 'Black Han Sans', sans-serif";
   x.fillText("오늘의 운세", P, 152);
 
   /* 낙관 도장 */
@@ -1715,8 +1802,8 @@ function buildStory(){
   x.fillStyle=S.soft; x.fillText(badge, tx+22, y+182);
 
   /* 본문 — 서명 자리를 넘지 않도록 글자 크기를 맞춘다 */
-  var bodyTop=y+zh+52, maxW=W-P*2, footLimit=H-214, dosH=168;
-  var SZ=[[38,68],[34,60],[30,54],[27,49]];
+  var bodyTop=y+zh+52, maxW=W-P*2, footLimit=H-214, dosH=226;
+  var SZ=[[38,68],[34,60],[30,54],[27,49],[24,42],[22,38],[20,34],[18,30],[16,27]];
   var fs,lh,lines,ol,by,dy,fits=false;
   for(var si=0; si<SZ.length; si++){
     fs=SZ[si][0]; lh=SZ[si][1];
@@ -1797,12 +1884,13 @@ function buildStory(){
   x.fillStyle=S.soft; x.font="600 24px 'IBM Plex Sans KR', sans-serif";
   x.fillText("생년월일만 넣으시면 됩니다", fx, dy2+50);
   x.fillStyle=S.ink; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
-  x.fillText(pageUrl().replace(/^https?:\/\//,""), fx, dy2+84);
+  x.fillText((pageUrl() ? new URL(pageUrl()).hostname : "@cafe_dennis"), fx, dy2+84);
   return c;
 }
 function shareStory(){
   shMsg("이미지를 만드는 중이에요…");
   var go=function(){
+    if(go.started) return; go.started=true;
     var canvas;
     try{ canvas=buildStory(); }
     catch(err){ shMsg("이미지를 만들지 못했습니다. 잠시 뒤 다시 눌러주세요."); return; }
@@ -1810,7 +1898,8 @@ function shareStory(){
       if(!blob){ shMsg("이미지를 만들지 못했습니다."); return; }
       var file=null;
       try{ file=new File([blob],"수달도사-오늘의운세.png",{type:"image/png"}); }catch(e){}
-      var url=URL.createObjectURL(blob);
+      if(state.storyUrl) URL.revokeObjectURL(state.storyUrl);
+      var url=state.storyUrl=URL.createObjectURL(blob);
       el("shPrevImg").src=url;
       el("shSave").href=url;
       el("shPrev").classList.remove("hidden");
@@ -1829,10 +1918,10 @@ function shareStory(){
   var need=[zodiacImg(state.me.z), DOSA];
   var waitImg=function(next){
     var left=0, done=function(){ if(--left<=0) next(); };
-    need.forEach(function(g){ if(!(g.complete && g.naturalWidth)) left++; });
+    need.forEach(function(g){ if(!g.complete) left++; });
     if(!left) return next();
     need.forEach(function(g){
-      if(g.complete && g.naturalWidth) return;
+      if(g.complete) return;
       g.addEventListener("load", done, {once:true});
       g.addEventListener("error", done, {once:true});
     });
