@@ -647,112 +647,9 @@ details.deep:not([open])>summary .mk::after{content:"보기"}
 
 footer{margin-top:24px;padding-top:17px;border-top:1.5px solid var(--rule);font-size:12px;color:var(--ink-soft);line-height:1.8;word-break:keep-all}
 </style>
-
-<style id="mobile-layout-v4">
-/* Mobile edition: one responsive layout layer, original artwork and calculation retained. */
-:root{--radius:12px;--shadow-sm:none;--shadow:none}
-html{scroll-behavior:auto;scroll-padding-top:24px}
-body{font-size:1rem;line-height:1.7;background-image:none;text-rendering:optimizeLegibility}
-.wrap{width:100%;max-width:600px;margin:auto;padding:24px max(16px,env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
-button,a,input,summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-button,a,summary{overflow-wrap:anywhere}
-button,input{font-family:inherit}
-:focus-visible{outline:3px solid var(--ju);outline-offset:4px}
-header.top{align-items:center;border:0;padding:0 0 16px;gap:12px}
-.brand{min-width:0}.brand .kicker{font-size:.875rem;margin:0 0 4px;letter-spacing:.02em}
-.brand .name{font-size:2rem;line-height:1.3;letter-spacing:-.035em}
-.themetog{min-height:44px;border:1px solid var(--rule);border-radius:999px;padding:8px 12px;font-size:.875rem;box-shadow:none;white-space:nowrap}
-.obang{height:5px;margin:0;border:0;border-radius:4px}
-.tagline{font-size:.875rem;margin:14px 0 0;line-height:1.7}
-.gate,.card{border:1px solid var(--rule);border-radius:20px;background:var(--hanji-2);box-shadow:0 8px 28px rgba(0,0,0,.055);padding:24px;overflow:visible}
-.gate{margin-top:20px;border-top:4px solid var(--ju);display:flex;flex-direction:column}
-.gate .ghead{margin-bottom:18px;padding-right:66px}
-.gate .ghead .t1{font-size:.875rem}.gate .ghead .t2{font-size:1.875rem;line-height:1.4}
-.gate .stampwrap,.card .stampwrap{top:22px;right:22px}
-.gate .seal,.card .seal{width:46px;height:62px;box-shadow:2px 2px 0 var(--line)}
-.gate .seal .cols,.card .seal .cols{font-size:23px}
-.gate .lead{gap:14px;margin-bottom:22px;align-items:center}
-.dosa{width:78px;height:100px;border-radius:14px}
-.gate .bubble{background:transparent;border:0;padding:0;font-size:1rem;line-height:1.75;border-radius:0}
-.gate .bubble::before,.gate .bubble::after{display:none}
-label.f{font-size:.875rem;gap:10px}.flab{justify-content:space-between;flex-wrap:wrap}.flab em{font-size:.75rem;color:var(--ink-soft);background:var(--hanji);padding:3px 9px;border-radius:20px}
-label.f input{min-height:64px;font-size:1.625rem;padding:12px;border:1.5px solid var(--rule);border-radius:12px;letter-spacing:.065em;background:var(--hanji);caret-color:var(--ju)}
-label.f input::placeholder{opacity:.65;font-size:1.25rem;letter-spacing:.02em}
-label.f input:focus{outline:3px solid var(--ju-tint);outline-offset:2px;border-color:var(--ju)}
-label.f input[aria-invalid="true"]{border-color:var(--ju)}
-.bday-echo{font-size:.875rem;min-height:1.7em;margin-top:8px;font-weight:500}
-.gate .tools{margin-top:12px!important}.gate .tools:last-child{margin-top:0!important}
-.btn{font-size:.875rem;min-height:48px;box-shadow:none;border:1px solid var(--rule);border-radius:12px;padding:11px 16px}
-.btn.big{min-height:56px;font-size:1.125rem;border:0;box-shadow:0 4px 12px var(--ju-tint)}
-.hint.boxed{order:5;margin:14px 0 0;background:none;border:0;padding:0;text-align:center;font-size:.8125rem;line-height:1.7}
-.zstrip{order:6;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-top:20px;padding-top:16px}.zstrip img{opacity:.8;border-radius:5px}
-.err{font-size:.875rem;margin-top:10px}
-.section-kicker{font-size:.875rem;font-weight:600;color:var(--ink-soft);margin:26px 2px 12px}
-.presets{gap:8px}.pl{display:none}.prow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.pchip{font-size:.875rem;min-height:46px;padding:9px 6px;border-radius:12px;border:1px solid var(--rule);box-shadow:none!important}
-.pd{font-size:.875rem;line-height:1.7;margin-top:2px}
-.card .head{gap:14px;display:grid;grid-template-columns:64px minmax(0,1fr);padding:0 54px 18px 0;margin-bottom:18px;min-height:90px}
-.zodiac{width:64px;height:82px;border-radius:10px}.card .head .d{font-size:.8125rem;overflow-wrap:anywhere}
-.card .head .g{font-size:1.75rem;line-height:1.4}.card .head .zname{font-size:.875rem}
-.speaker{gap:8px;margin-bottom:16px;flex-wrap:wrap}.speaker img{width:36px;height:36px;box-shadow:none;border-width:1px}.speaker .nm{font-size:1rem}.speaker .says{font-size:.875rem;margin:0}
-.card .body{font-size:1.0625rem;line-height:1.95;word-break:keep-all;overflow-wrap:anywhere;letter-spacing:0}
-.card .body.speech{background:none;border:0;border-radius:0;padding:0}.card .body.speech::before,.card .body.speech::after{display:none}
-.ln+.ln{margin-top:.65em}.ln.blank{height:.35em}
-.card .oneline{font-size:1rem;padding:16px;border-radius:0 12px 12px 0;margin-top:22px;border-left-width:3px;line-height:1.75}
-.card .tools{gap:10px;margin-top:18px}#copybtn{background:var(--hanji);color:var(--ink);flex:1}.count{font-size:.8125rem}
-.glance{border:1px solid var(--rule);border-radius:16px}.g-head{font-size:.875rem;padding:15px 18px}
-.gcell{padding:16px 18px;grid-template-columns:100px minmax(0,1fr);column-gap:14px;row-gap:4px}
-.gcell .lab{font-size:.8125rem}.gcell .mark{font-size:1.125rem;flex-wrap:wrap;gap:4px}.gcell .mark em{font-size:1rem}.gcell .txt{font-size:.9375rem;line-height:1.75;overflow-wrap:anywhere}
-.g-do{grid-template-columns:1fr}.gd{padding:16px 18px;border-right:0;gap:6px}.gd.good{border-right:0;border-bottom:1px solid var(--rule)}
-.gd .k{font-size:.875rem}.gd .v{font-size:1rem;line-height:1.7}.g-tip{padding:16px 18px}.g-tip .tt{font-size:.9375rem;line-height:1.8}
-details.deep{border:1px solid var(--rule);border-radius:14px}details.deep>summary{min-height:54px;font-size:.9375rem;padding:14px 18px}details.deep>summary .mk{font-size:.8125rem}
-.deep-body{font-size:.9375rem;line-height:1.85;padding:18px;overflow-wrap:anywhere}.deep-body .k{font-size:.875rem}
-.againbtn{box-shadow:none;border:1px solid var(--rule);border-radius:14px;min-height:76px;padding:16px;gap:12px}.againbtn .ag-1{font-size:1rem;line-height:1.6}.againbtn .ag-2{font-size:.875rem;line-height:1.6}.againbtn .ag-ic{width:32px;height:32px;border-width:1px}
-.share{background:var(--hanji-2);color:var(--ink);box-shadow:none;border:1px solid var(--rule);border-radius:20px;padding:22px;margin-top:24px}
-.sh-head{gap:12px}.sh-t{font-size:1.125rem;line-height:1.5}.sh-face{border:1px solid var(--rule)}
-.sh-kakao,.sh-insta{min-height:54px;font-family:inherit;font-size:1rem;font-weight:600;border:0;box-shadow:none;border-radius:12px;padding:13px}
-.sh-insta{background:#713cb1;color:#fff;margin-top:10px}.sh-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
-.sh-mini{display:flex;justify-content:center;align-items:center;min-width:0;min-height:46px;font-size:.875rem;padding:9px 6px;color:var(--ink);border:1px solid var(--rule);background:var(--hanji);border-radius:10px}
-.sh-msg{font-size:.875rem;line-height:1.7;margin-top:12px;min-height:0}.sh-msg:empty{display:none}
-.sh-prev{justify-items:center}.sh-prev img{width:min(220px,100%);border:1px solid var(--rule);border-radius:12px}.sh-save{display:flex;align-items:center;min-height:48px;border:1px solid var(--rule);color:var(--ink);font-size:.9375rem;padding:10px 18px;border-radius:10px}
-.adban{border:1px solid var(--rule);border-radius:16px;box-shadow:none;margin-top:26px}.adban:hover{box-shadow:none}.ad-bar{padding:16px;border:0}.ad-1{font-size:1rem;line-height:1.5}.ad-2{font-size:.8125rem;line-height:1.6}.ad-go{width:30px;height:30px;border-width:1px}
-footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
-/* Stop decorative motion so every paragraph is available immediately. */
-*,*::before,*::after{animation:none!important}
-.btn.big::after,.sh-kakao::after,.seal::before,.seal::after{display:none}
-.btn:hover,.againbtn:hover,.sh-insta:hover,.pchip:hover,.themetog:hover{transform:none}
-@media(min-width:720px){.wrap{padding-top:40px;max-width:640px}.gate,.card{padding:30px}.gate .stampwrap,.card .stampwrap{right:28px;top:28px}.brand .name{font-size:2.5rem}.gate .lead{gap:20px}.dosa{width:90px;height:114px}.g-do{grid-template-columns:1fr 1fr}.gd.good{border-right:1px solid var(--rule);border-bottom:0}}
-@media(max-width:370px){.wrap{padding-left:12px;padding-right:12px}.gate,.card,.share{padding:18px}.brand .name{font-size:1.75rem}.themetog{padding:8px 10px}.gate .lead{gap:12px}.dosa{width:60px;height:80px}.gate .bubble{font-size:.9375rem}.gate .stampwrap,.card .stampwrap{right:16px;top:18px}.card .head{grid-template-columns:48px minmax(0,1fr);gap:10px;padding-right:48px}.zodiac{width:48px;height:66px}.card .head .g{font-size:1.5rem}.card .seal{width:38px;height:54px}.card .seal .cols{font-size:20px}.gcell{grid-template-columns:84px minmax(0,1fr);padding:14px;column-gap:10px}.zstrip{grid-template-columns:repeat(6,minmax(0,1fr))}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
-@media print{.themetog,.presets,.share,.againbtn,.adban,.card .tools{display:none!important}.wrap{max-width:none;padding:0}.card,.glance{box-shadow:none;break-inside:avoid}body{background:white;color:black}}
-</style>
-
-<style id="story-kitsch-v5">
-#shareBox{border:2px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);padding:22px 18px;background:var(--hanji-2);margin-right:5px}
-#shareBox .sh-head{gap:12px;margin-bottom:8px;align-items:center}
-#shareBox .sh-face{width:54px;height:64px;border:2px solid var(--ink);border-radius:10px;transform:rotate(-5deg);box-shadow:3px 3px 0 #f7d74b}
-#shareBox .sh-t{font-size:1.25rem;line-height:1.5;letter-spacing:-.025em}
-.sh-eyebrow{display:block;color:var(--ju);font:600 .75rem/1.6 'IBM Plex Sans KR',sans-serif;letter-spacing:.07em;margin-bottom:3px}
-.sh-intro{font-size:.875rem;color:var(--ink-soft);margin:14px 0 16px}
-#shareBox .sh-insta{background:#2547bd;color:#fff9e9;border:2px solid #202018;box-shadow:3px 3px 0 #202018;display:flex;gap:10px;min-height:58px;padding:12px;font-size:1rem}
-.sh-ratio{font-size:.75rem;border:1px solid currentColor;border-radius:5px;padding:2px 5px;margin-left:auto}
-#shareBox .sh-insta:disabled{opacity:.6;cursor:wait}
-#shareBox .sh-prev{display:grid;gap:14px;background:#e34234;border:2px solid #202018;border-radius:14px;margin-top:20px;padding:16px 14px;color:#fff9e9}
-#shareBox .sh-prev.hidden{display:none}
-.sh-proof{width:100%;display:flex;justify-content:space-between;gap:8px;font-size:.75rem;font-weight:600;letter-spacing:.03em;flex-wrap:wrap}
-#shareBox .sh-prev img{display:block;width:min(100%,340px);height:auto;aspect-ratio:9/16;border:2px solid #202018;border-radius:9px;box-shadow:4px 4px 0 #202018;background:#fff9e9}
-.sh-actions{width:100%;display:grid;grid-template-columns:1fr;gap:10px;margin-top:4px}
-#shareBox .sh-save,.sh-send{min-height:50px;display:flex;align-items:center;justify-content:center;border:2px solid #202018;border-radius:10px;padding:10px 6px;font:600 .875rem/1.5 'IBM Plex Sans KR',sans-serif;text-decoration:none;cursor:pointer;text-align:center}
-#shareBox .sh-save{background:#fff9e9;color:#202018}.sh-send{background:#f7d74b;color:#202018}
-.sh-help{font-size:.8125rem;line-height:1.75;margin:0;word-break:keep-all;overflow-wrap:anywhere}
-.sh-divider{margin:24px 0 14px;padding-top:20px;border-top:2px dashed var(--rule);font-size:.875rem;color:var(--ink-soft);text-align:center}
-#shareBox .sh-kakao{font-size:.9375rem;border:1px solid #202018;margin-top:12px}
-#shareBox .sh-msg{padding:0 2px;font-size:.875rem}
-@media(max-width:360px){#shareBox{padding:20px 14px}#shareBox .sh-t{font-size:1.0625rem}#shareBox .sh-prev{padding:14px 10px}.sh-actions{gap:8px}.sh-ratio{display:none}}
-</style>
 </head>
 <body>
-<main class="wrap" id="main">
+<div class="wrap">
 
 <header class="top">
   <div class="brand">
@@ -762,7 +659,7 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
   <button class="themetog" id="themetog" type="button" aria-pressed="false">다크모드</button>
 </header>
 <div class="obang" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<p class="tagline" id="tagline">오늘의 기운과 나의 띠를 함께 살펴봅니다.</p>
+<p class="tagline" id="tagline">수달도사가 여러분의 오늘 운세가 어떻게 되는지 알려드립니다.</p>
 
 <section class="gate anim-rise" id="gate" aria-label="생년월일 입력">
   <div class="stampwrap"><div class="seal stamp" id="gseal"><div class="cols" id="gsealtxt"><span>庚</span><span>辰</span></div></div></div>
@@ -776,17 +673,17 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
   </div>
   <label class="f">
     <span class="flab">생년월일 <em>숫자 8자리</em></span>
-    <input type="text" id="bday" inputmode="numeric"  maxlength="12"
-           placeholder="예: 1982.07.15" autocomplete="off" enterkeyhint="go" aria-describedby="bdayEcho calcerr">
+    <input type="text" id="bday" inputmode="numeric" pattern="[0-9]*" maxlength="12"
+           placeholder="19820715" autocomplete="off" enterkeyhint="go" aria-describedby="bdayEcho">
   </label>
   <div class="bday-echo" id="bdayEcho" aria-live="polite">년 · 월 · 일 순서로 숫자만 눌러주세요</div>
-  <p class="hint boxed">양력 생년월일을 입력해 주세요.<br>생년월일은 저장하거나 서버로 전송하지 않습니다.</p>
+  <p class="hint boxed">생년월일은 양력으로, 숫자만 눌러주시면 됩니다. 입력해 주신 날짜는 이 브라우저에만 잠시 머물 뿐, 어디로도 전송되지 않으니 안심하고 넣어주세요.</p>
   <div class="zstrip" id="zstrip" aria-hidden="true"></div>
   <div class="tools" style="margin-top:15px"><button class="btn ju big" type="button" id="calcbtn">내 운세 보기</button></div>
   <div class="tools" style="margin-top:9px"><span class="err hidden" id="calcerr" role="alert"></span></div>
 </section>
 
-<div id="result" class="hidden" tabindex="-1" aria-label="오늘의 운세 결과">
+<div id="result" class="hidden">
   <div class="section-kicker">운세의 초점</div>
   <div class="presets anim-rise">
     <div class="pset">
@@ -815,7 +712,7 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
     <div class="oneline" id="rone"></div>
     <div class="tools">
       <button class="btn ju" type="button" id="copybtn">운세 문구 복사</button>
-      <span class="count" id="copycount" role="status"></span>
+      <span class="count" id="copycount"></span>
     </div>
   </div>
 
@@ -846,26 +743,23 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
   <div class="share" id="shareBox">
     <div class="sh-head">
       <img class="sh-face" id="shFace" alt="" width="42" height="42">
-      <div class="sh-t">오늘의 운세 공유하기</div>
+      <div class="sh-t">수달도사<br>친구에게도 알려주기</div>
     </div>
-    <button class="sh-insta" type="button" id="shInsta">
-      <span>인스타그램 스토리 공유하기</span>
-    </button>
-    <div class="sh-prev hidden" id="shPrev">
-      <img id="shPrevImg" alt="내 띠와 오늘의 운세가 담긴 스토리 카드 미리보기" width="1080" height="1920">
-      <div class="sh-actions">
-        <a class="sh-save" id="shSave" download="수달도사-오늘의운세.png">이미지 저장</a>
-      </div>
-      <p class="sh-help">공유 목록에 Instagram이 없으면 이미지를 저장한 뒤 스토리에 올려주세요.</p>
-    </div>
-    <div class="sh-msg" id="shMsg" role="status" aria-live="polite"></div>
     <button class="sh-kakao" type="button" id="shKakao">
-      <span class="bub" aria-hidden="true">💬</span><span>카카오톡으로 알려주기</span>
+      <span class="bub" aria-hidden="true">💬</span><span>카카오톡으로 보내기</span>
+    </button>
+    <button class="sh-insta" type="button" id="shInsta">
+      <span class="bub" aria-hidden="true">◧</span><span>인스타 스토리로 공유</span>
     </button>
     <div class="sh-row">
       <button class="sh-mini" type="button" id="shMore">다른 앱으로</button>
       <a class="sh-mini" id="shX" href="#" target="_blank" rel="noopener">X</a>
       <button class="sh-mini" type="button" id="shLink">링크 복사</button>
+    </div>
+    <div class="sh-msg" id="shMsg"></div>
+    <div class="sh-prev hidden" id="shPrev">
+      <img id="shPrevImg" alt="인스타그램 스토리용 이미지 미리보기">
+      <a class="sh-save" id="shSave" download="수달도사-오늘의운세.png">이미지 저장</a>
     </div>
   </div>
 </div>
@@ -886,7 +780,7 @@ footer{font-size:.8125rem;line-height:1.85;margin-top:24px;padding-top:18px}
   운세는 정해진 미래가 아니라 오늘을 어떻게 쓸지 정하는 참고입니다.
 </footer>
 
-</main>
+</div>
 
 <script>
 (function(){
@@ -1411,13 +1305,6 @@ function render(){
   staggerRows();
 
   var pv=el("shPrev"); if(pv) pv.classList.add("hidden");
-  state.storyGeneration=(state.storyGeneration||0)+1;
-  state.storyFile=null;
-  state.storyPromise=null;
-  prepareStory().catch(function(){});
-  el("shInsta").disabled=false;
-  el("shInsta").removeAttribute("aria-busy");
-  el("shMsg").textContent="";
   el("shFace").src = DOSA_IMG;
   if(typeof refreshShareLinks === "function") refreshShareLinks();
 }
@@ -1515,8 +1402,8 @@ function pickForm(){
 }
 
 function toTop(){ try{ window.scrollTo({top:0, behavior:"auto"}); }catch(e){ window.scrollTo(0,0); } }
-function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); el("bday").blur(); el("result").focus({preventScroll:true}); toTop(); }
-function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); el("bday").focus({preventScroll:true}); }
+function showResult(){ el("gate").classList.add("hidden"); el("tagline").classList.add("hidden"); el("result").classList.remove("hidden"); render(); toTop(); }
+function showGate(){ el("result").classList.add("hidden"); el("tagline").classList.remove("hidden"); el("gate").classList.remove("hidden"); renderGate(); toTop(); }
 
 el("editbtn").addEventListener("click", showGate);
 
@@ -1553,13 +1440,8 @@ function parseBday(d){
   return {y:y, m:m, d:dd};
 }
 function onBdayInput(){
-  var inp=el("bday"), raw=inp.value, pos=inp.selectionStart, d=digitsOf(raw);
-  var digitPos=digitsOf(raw.slice(0,pos)).length;
+  var inp=el("bday"), d=digitsOf(inp.value);
   inp.value=prettyDate(d);
-  var newPos=0, seen=0;
-  while(newPos<inp.value.length && seen<digitPos){if(/[0-9]/.test(inp.value[newPos])) seen++;newPos++;}
-  try{inp.setSelectionRange(newPos,newPos);}catch(e){}
-  inp.removeAttribute("aria-invalid");
   var echo=el("bdayEcho");
   el("calcerr").classList.add("hidden");
   if(state.bdayFresh){
@@ -1587,9 +1469,8 @@ function todayDigits(){
 }
 function fillToday(){
   var inp=el("bday"); if(!inp) return;
-  state.bdayFresh = false;
-  inp.value = "";
-  inp.removeAttribute("aria-invalid");
+  state.bdayFresh = true;
+  inp.value = prettyDate(todayDigits());
   onBdayInput();
 }
 /* 기본값(오늘 날짜)이 들어 있는 상태에서 처음 숫자를 누르면 칸을 비우고 시작한다.
@@ -1606,7 +1487,7 @@ function submit(){
   var r=state.bdayFresh ? {err:"오늘 날짜가 들어 있어요. 태어나신 날을 숫자 여덟 자리로 눌러주세요. 예) 19820715"} : parseBday(d);
   if(r.err){
     errEl.textContent = (!state.bdayFresh && d.length!==8) ? "생년월일을 숫자 여덟 자리로 넣어주세요. 예) 19820715" : r.err;
-    errEl.classList.remove("hidden"); el("bday").setAttribute("aria-invalid","true"); el("bday").focus(); return;
+    errEl.classList.remove("hidden"); el("bday").focus(); return;
   }
   errEl.classList.add("hidden");
   state.date = new Date();
@@ -1630,7 +1511,7 @@ el("bday").addEventListener("paste", clearIfFresh);
 el("bday").addEventListener("input", onBdayInput);
 el("calcbtn").addEventListener("click", submit);
 el("bday").addEventListener("keydown", function(e){
-  if(e.key==="Enter"){ e.preventDefault(); submit(); return; }
+  if(e.key==="Enter"){ submit(); return; }
   if(e.key && e.key.length===1 && e.key>="0" && e.key<="9") clearIfFresh();
 });
 
@@ -1661,7 +1542,7 @@ el("copybtn").addEventListener("click", function(){
     var ta=document.createElement("textarea");
     ta.value=txt; ta.style.position="fixed"; ta.style.opacity="0";
     document.body.appendChild(ta); ta.select();
-    try{ if(!document.execCommand("copy")) throw new Error("copy"); done(); }
+    try{ document.execCommand("copy"); done(); }
     catch(err){ target.textContent="복사가 안 되면 길게 눌러 선택해 주세요"; }
     document.body.removeChild(ta);
   }
@@ -1670,7 +1551,7 @@ el("copybtn").addEventListener("click", function(){
 });
 
 /* 공유 */
-function pageUrl(){ return /^https?:$/.test(location.protocol) ? location.href.split("#")[0] : ""; }
+function pageUrl(){ return location.href.split("#")[0]; }
 /* 친구에게 보내는 건 내 운세가 아니라 초대 문구 */
 var INVITE=[
   "생년월일만 넣으시면, 오늘 일진이 내 띠에 어떻게 닿는지 봐드려요.",
@@ -1727,19 +1608,18 @@ function nativeShare(onNo){
 el("shKakao").addEventListener("click", function(){
   nativeShare(function(){
     copyTo(shareText(),
-      function(){ shMsg("초대 문구와 링크를 복사했습니다. 카카오톡 대화창에 붙여넣어 주세요."); },
+      function(){ shMsg("운세와 링크를 복사했습니다. 카카오톡 대화창에 붙여넣어 주세요."); },
       function(){ shMsg("복사가 안 되면 운세 글을 길게 눌러 선택한 뒤 복사해 주세요."); });
   });
 });
 el("shMore").addEventListener("click", function(){
   nativeShare(function(){
     copyTo(shareText(),
-      function(){ shMsg("초대 문구와 링크를 복사했습니다. 원하는 앱에 붙여넣어 주세요."); },
+      function(){ shMsg("운세와 링크를 복사했습니다. 원하는 앱에 붙여넣어 주세요."); },
       function(){ shMsg("복사가 안 되면 운세 글을 길게 눌러 선택한 뒤 복사해 주세요."); });
   });
 });
 el("shLink").addEventListener("click", function(){
-  if(!pageUrl()){shMsg("링크 공유는 웹에 게시한 페이지에서 사용할 수 있어요. 지금은 운세 이미지로 공유해 주세요.");return;}
   copyTo(pageUrl(),
     function(){ shMsg("링크를 복사했습니다."); },
     function(){ shMsg("링크 복사가 안 되면 주소창의 주소를 직접 복사해 주세요."); });
@@ -1770,159 +1650,200 @@ function roundRect(x,a,b,w,h,r){
   x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath();
 }
 function buildStory(){
-  var c=document.createElement("canvas"); c.width=1080; c.height=1920;
-  var x=c.getContext("2d"), d=state.day, me=state.me;
-  var C={red:"#e34234",blue:"#2547bd",yellow:"#f7d74b",paper:"#fff9e9",ink:"#202018",green:"#176d51"};
-  function panel(a,b,w,h,color,r){
-    x.fillStyle=color;roundRect(x,a,b,w,h,r||0);x.fill();
+  var W=1080,H=1920,P=84;
+  var c=document.createElement("canvas"); c.width=W; c.height=H;
+  var x=c.getContext("2d");
+  var d=state.day, me=state.me, S=STORY;
+
+  x.fillStyle=S.bg; x.fillRect(0,0,W,H);
+  x.fillStyle="rgba(23,20,15,.055)";
+  for(var gy=0;gy<H;gy+=10) for(var gx=0;gx<W;gx+=10) x.fillRect(gx,gy,2,2);
+
+  /* 오방색 띠 */
+  var bw=W/5;
+  S.band.forEach(function(col,i){ x.fillStyle=col; x.fillRect(i*bw,0,bw+1,26); });
+
+  x.textBaseline="top";
+  x.fillStyle=S.ju; x.font="600 34px 'IBM Plex Sans KR', sans-serif";
+  x.fillText("수달도사가 봐주는", P, 104);
+  x.fillStyle=S.ink; x.font="400 82px 'Black Han Sans', sans-serif";
+  x.fillText("오늘의 운세", P, 152);
+
+  /* 낙관 도장 */
+  var sw=196, sh=250, sx=W-P-sw, sy=104;
+  x.save(); x.translate(sx+sw/2, sy+sh/2); x.rotate(-3*Math.PI/180);
+  x.fillStyle=S.ink; roundRect(x,-sw/2+7,-sh/2+7,sw,sh,8); x.fill();
+  x.fillStyle=S.ju;  roundRect(x,-sw/2,-sh/2,sw,sh,8); x.fill();
+  x.strokeStyle=S.juInk; x.lineWidth=5;
+  roundRect(x,-sw/2+16,-sh/2+16,sw-32,sh-32,5); x.stroke();
+  x.fillStyle=S.juInk; x.font="900 84px 'Noto Serif KR', serif";
+  x.textAlign="center";
+  x.fillText(GH[d.gi], 0, -sh/2+34);
+  x.fillText(ZH[d.zi], 0, -sh/2+128);
+  x.restore(); x.textAlign="left";
+
+  var y=396;
+  x.strokeStyle=S.rule; x.lineWidth=2;
+  x.beginPath(); x.moveTo(P,y); x.lineTo(W-P,y); x.stroke();
+
+  y=440;
+  /* 내 띠 그림 */
+  var zw=224, zh=280, im=zodiacImg(me.z);
+  x.save();
+  roundRect(x,P,y,zw,zh,12); x.clip();
+  x.fillStyle=S.card; x.fillRect(P,y,zw,zh);
+  if(im && im.complete && im.naturalWidth){
+    var sc=Math.max(zw/im.naturalWidth, zh/im.naturalHeight);
+    var dw=im.naturalWidth*sc, dh=im.naturalHeight*sc;
+    x.drawImage(im, P+(zw-dw)/2, y+(zh-dh)*0.42, dw, dh);
   }
-  function txt(t,a,b,size,color,weight,font){
-    x.textAlign="left";x.textBaseline="top";x.fillStyle=color;
-    x.font=(weight||"600")+" "+size+"px '"+(font||"IBM Plex Sans KR")+"', sans-serif";
-    x.fillText(t,a,b);
-  }
-  function textBlock(t,a,b,w,h,size,min,color,font){
-    var lines,lh;
-    do{
-      x.font="500 "+size+"px '"+(font||"IBM Plex Sans KR")+"', sans-serif";
-      lines=wrapLines(x,t,w);lh=Math.round(size*1.55);
-      if(lines.length*lh<=h)break;
-      size-=1;
-    }while(size>=min);
-    // Show a deliberate ellipsis only for unexpectedly long future content.
-    var limit=Math.max(1,Math.floor(h/lh));
-    if(lines.length>limit){
-      lines=lines.slice(0,limit);
-      var last=lines[limit-1];
-      while(last.length && x.measureText(last+"…").width>w)last=last.slice(0,-1);
-      lines[limit-1]=last+"…";
-    }
-    lines.forEach(function(line,i){txt(line,a,b+i*lh,size,color,"500",font);});
-  }
-  function photo(im,a,b,w,h){
-    x.save();roundRect(x,a,b,w,h,14);x.clip();
-    panel(a,b,w,h,C.paper,14);
-    if(im && im.complete && im.naturalWidth){
-      var scale=Math.max(w/im.naturalWidth,h/im.naturalHeight);
-      x.drawImage(im,a+(w-im.naturalWidth*scale)/2,b+(h-im.naturalHeight*scale)*.35,im.naturalWidth*scale,im.naturalHeight*scale);
-    }
-    x.restore();
-  }
-  panel(0,0,1080,1920,C.red);
-  // Graphic print border stays outside the story's main reading area.
-  x.fillStyle="rgba(32,32,24,.10)";
-  for(var gy=16;gy<1920;gy+=24)for(var gx=16;gx<1080;gx+=24)x.fillRect(gx,gy,3,3);
-  [104,1784].forEach(function(y){
-    for(var i=0;i<18;i++)panel(i*60,y,60,30,i%2?C.paper:C.ink);
-  });
-  panel(64,194,966,1540,C.ink,28);
-  panel(50,180,966,1540,C.paper,28);
-  txt("SOODAL DOSA  /  DAILY FORTUNE",92,218,25,C.blue,"600");
-  txt("오늘의 운세",88,266,86,C.ink,"400","Black Han Sans");
-  // A rotated date-label, inspired by a printed ticket.
-  x.save();x.translate(866,308);x.rotate(.065);
-  panel(-100,-43,200,86,C.yellow,8);
-  txt(String(d.m).padStart(2,"0")+" / "+String(d.d).padStart(2,"0"),-77,-23,38,C.ink);
   x.restore();
-  panel(88,386,890,224,C.blue,18);
-  photo(zodiacImg(me.z),108,404,152,188);
-  txt(fmtDate(d.y,d.m,d.d),286,416,28,C.paper);
-  txt(d.name+"일",282,462,56,C.paper,"400","Black Han Sans");
-  txt(ZANIMAL[me.z]+"띠의 오늘",286,542,30,C.yellow);
-  x.save();x.translate(888,492);x.rotate(-.08);
-  panel(-57,-78,114,156,C.red,8);
-  x.strokeStyle=C.paper;x.lineWidth=3;roundRect(x,-47,-68,94,136,4);x.stroke();
-  txt(GH[d.gi],-28,-58,54,C.paper,"900","Noto Serif KR");
-  txt(ZH[d.zi],-28,8,54,C.paper,"900","Noto Serif KR");x.restore();
-  panel(88,642,890,218,C.yellow,18);
-  txt("오늘, 이 한마디",114,664,28,C.ink);
-  textBlock(state.oneText,114,711,838,132,45,32,C.ink);
-  txt("수달도사의 풀이",94,896,29,C.red);
-  textBlock(state.bodyText,94,951,874,337,36,27,C.ink,"Noto Serif KR");
-  // Two equal action tiles: generous gutters and predictable text bounds.
-  [[state.goodText,"하면 좋은 것",C.green,88],[state.avoidText,"잠시 미룰 것",C.red,543]].forEach(function(v){
-    panel(v[3],1320,435,206,v[2],16);
-    txt(v[1],v[3]+23,1341,27,C.paper);
-    textBlock(v[0],v[3]+23,1390,389,115,33,26,C.paper);
+  x.strokeStyle=S.rule; x.lineWidth=2.5; roundRect(x,P,y,zw,zh,12); x.stroke();
+
+  var tx=P+zw+34;
+  x.fillStyle=S.soft; x.font="600 30px 'IBM Plex Sans KR', sans-serif";
+  x.fillText(fmtDate(d.y,d.m,d.d), tx, y+26);
+  x.fillStyle=S.ink; x.font="400 68px 'Black Han Sans', sans-serif";
+  x.fillText(d.name+"일", tx, y+68);
+
+  /* 띠 배지 */
+  var badge = ZH[me.z]+" "+ZANIMAL[me.z]+"띠";
+  x.font="600 28px 'IBM Plex Sans KR', sans-serif";
+  var bwd=x.measureText(badge).width+44;
+  x.strokeStyle=S.rule; x.lineWidth=2.5;
+  roundRect(x,tx,y+168,bwd,52,26); x.stroke();
+  x.fillStyle=S.soft; x.fillText(badge, tx+22, y+182);
+
+  /* 본문 — 서명 자리를 넘지 않도록 글자 크기를 맞춘다 */
+  var bodyTop=y+zh+52, maxW=W-P*2, footLimit=H-214, dosH=168;
+  var SZ=[[38,68],[34,60],[30,54],[27,49]];
+  var fs,lh,lines,ol,by,dy,fits=false;
+  for(var si=0; si<SZ.length; si++){
+    fs=SZ[si][0]; lh=SZ[si][1];
+    x.font="400 "+fs+"px 'Noto Serif KR', serif";
+    lines=wrapLines(x, state.bodyText, maxW);
+    x.font="600 38px 'IBM Plex Sans KR', sans-serif";
+    ol=wrapLines(x, state.oneText, maxW).slice(0,2);
+    by=bodyTop+lines.length*lh+30;
+    dy=by+76+ol.length*52+28;
+    if(dy+dosH<=footLimit){ fits=true; break; }
+  }
+  if(!fits){
+    var over=Math.ceil((dy+dosH-footLimit)/lh);
+    lines=lines.slice(0, Math.max(4, lines.length-over));
+    by=bodyTop+lines.length*lh+30;
+    dy=by+76+ol.length*52+28;
+  }
+  x.fillStyle=S.ink; x.font="400 "+fs+"px 'Noto Serif KR', serif";
+  lines.forEach(function(ln,i){ x.fillText(ln, P, bodyTop+i*lh); });
+
+  /* 한 줄 요약 */
+  x.setLineDash([9,9]); x.strokeStyle=S.rule; x.lineWidth=2;
+  x.beginPath(); x.moveTo(P,by); x.lineTo(W-P,by); x.stroke(); x.setLineDash([]);
+  x.fillStyle=S.ju; x.font="600 30px 'IBM Plex Sans KR', sans-serif";
+  x.fillText("한 줄 요약", P, by+30);
+  x.fillStyle=S.ink; x.font="600 38px 'IBM Plex Sans KR', sans-serif";
+  ol.forEach(function(ln,i){ x.fillText(ln, P, by+76+i*52); });
+
+  /* 하면 좋은 것 / 미룰 것 */
+  var colw=(maxW-24)/2;
+  [[state.goodText,"하면 좋은 것",S.band[0],P],[state.avoidText,"미룰 것",S.ju,P+colw+24]].forEach(function(g){
+    x.fillStyle=S.card; roundRect(x,g[3],dy,colw,dosH,10); x.fill();
+    x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,g[3],dy,colw,dosH,10); x.stroke();
+    x.fillStyle=g[2]; roundRect(x,g[3]+22,dy+26,16,16,4); x.fill();
+    x.fillStyle=S.soft; x.font="600 24px 'IBM Plex Sans KR', sans-serif";
+    x.fillText(g[1], g[3]+50, dy+26);
+    x.fillStyle=S.ink; x.font="600 31px 'IBM Plex Sans KR', sans-serif";
+    wrapLines(x, g[0], colw-44).slice(0,3).forEach(function(ln,i){
+      x.fillText(ln, g[3]+22, dy+76+i*44);
+    });
   });
-  x.strokeStyle=C.ink;x.lineWidth=2;x.setLineDash([8,9]);
-  x.beginPath();x.moveTo(88,1562);x.lineTo(978,1562);x.stroke();x.setLineDash([]);
-  photo(DOSA,92,1590,74,94);
-  txt("수달도사가 봐드립니다",184,1597,31,C.blue);
-  txt("@cafe_dennis",184,1642,27,C.ink);
-  txt("오늘을 위한 작은 참고",686,1646,24,C.ink);
+
+  /* 오늘의 기운 · 힘 · 신살 — 자리가 남으면 한 줄 더 */
+  var mks=state.marks||[], my=dy+dosH+26, mh=132;
+  if(mks.length===3 && my+mh<=H-236){
+    var mw=(maxW-24)/3;
+    mks.forEach(function(m,i){
+      var mx=P+i*(mw+12);
+      x.fillStyle=S.card; roundRect(x,mx,my,mw,mh,10); x.fill();
+      x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,mx,my,mw,mh,10); x.stroke();
+      x.fillStyle=S.soft; x.font="600 22px 'IBM Plex Sans KR', sans-serif";
+      x.fillText(m[0], mx+20, my+22);
+      x.fillStyle=S.ju; x.font="900 40px 'Noto Serif KR', serif";
+      x.fillText(m[1], mx+20, my+58);
+      x.fillStyle=S.ink; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
+      wrapLines(x, m[2], mw-40).slice(0,1).forEach(function(ln){ x.fillText(ln, mx+20, my+104); });
+    });
+  }
+
+  /* 발 — 수달도사 서명 */
+  x.strokeStyle=S.rule; x.lineWidth=2;
+  x.beginPath(); x.moveTo(P,H-192); x.lineTo(W-P,H-192); x.stroke();
+  var dw=88, dh=110, dy2=H-168;
+  x.save();
+  roundRect(x,P,dy2,dw,dh,10); x.clip();
+  x.fillStyle=S.card; x.fillRect(P,dy2,dw,dh);
+  if(DOSA && DOSA.complete && DOSA.naturalWidth){
+    var dsc=Math.max(dw/DOSA.naturalWidth, dh/DOSA.naturalHeight);
+    var ddw=DOSA.naturalWidth*dsc, ddh=DOSA.naturalHeight*dsc;
+    x.drawImage(DOSA, P+(dw-ddw)/2, dy2+(dh-ddh)*0.30, ddw, ddh);
+  }
+  x.restore();
+  x.strokeStyle=S.rule; x.lineWidth=2; roundRect(x,P,dy2,dw,dh,10); x.stroke();
+
+  var fx=P+dw+24;
+  x.fillStyle=S.ju; x.font="600 27px 'IBM Plex Sans KR', sans-serif";
+  x.fillText("수달도사가 오늘의 운세 봐드립니다", fx, dy2+14);
+  x.fillStyle=S.soft; x.font="600 24px 'IBM Plex Sans KR', sans-serif";
+  x.fillText("생년월일만 넣으시면 됩니다", fx, dy2+50);
+  x.fillStyle=S.ink; x.font="600 26px 'IBM Plex Sans KR', sans-serif";
+  x.fillText(pageUrl().replace(/^https?:\/\//,""), fx, dy2+84);
   return c;
 }
-function prepareStory(){
-  if(state.storyPromise) return state.storyPromise;
-  var generation=state.storyGeneration;
-  function waitImage(im){
-    return new Promise(function(resolve){
-      if(im.complete) return resolve();
-      im.addEventListener("load",resolve,{once:true});
-      im.addEventListener("error",resolve,{once:true});
-      setTimeout(resolve,2500);
-    });
-  }
-  var fonts=document.fonts ? document.fonts.ready : Promise.resolve();
-  state.storyPromise=Promise.all([fonts,waitImage(zodiacImg(state.me.z)),waitImage(DOSA)]).then(function(){
-    if(generation!==state.storyGeneration) return null;
-    return new Promise(function(resolve,reject){
-      try{
-        buildStory().toBlob(function(blob){
-          if(generation!==state.storyGeneration) return resolve(null);
-          if(!blob) return reject(new Error("Image unavailable"));
-          if(state.storyUrl) URL.revokeObjectURL(state.storyUrl);
-          state.storyUrl=URL.createObjectURL(blob);
-          try{state.storyFile=new File([blob],"수달도사-오늘의운세.png",{type:"image/png"});}catch(e){state.storyFile=null;}
-          resolve({file:state.storyFile,url:state.storyUrl});
-        },"image/png");
-      }catch(e){reject(e);}
-    });
-  }).catch(function(err){
-    if(generation===state.storyGeneration) state.storyPromise=null;
-    throw err;
-  });
-  return state.storyPromise;
-}
 function shareStory(){
-  if(!state.me || el("shInsta").disabled) return;
-  var generation=state.storyGeneration;
-  var button=el("shInsta");
-  el("shPrev").classList.add("hidden");
-  shMsg("");
-  function done(){button.disabled=false;button.removeAttribute("aria-busy");}
-  function fallback(item){
-    if(generation!==state.storyGeneration) return;
-    el("shPrevImg").src=item.url;
-    el("shSave").href=item.url;
-    el("shPrev").classList.remove("hidden");
-    shMsg("직접 공유가 지원되지 않아 이미지 저장으로 안내해 드려요.");
-    done();
-  }
-  function send(item){
-    if(!item || generation!==state.storyGeneration){done();return;}
-    try{
-      if(item.file && navigator.share && navigator.canShare && navigator.canShare({files:[item.file]})){
-        // Cached image lets this run inside the original button tap.
-        navigator.share({files:[item.file],title:"수달도사의 오늘 운세"}).then(done).catch(function(err){
-          if(err && err.name==="AbortError"){done();return;}
-          fallback(item);
-        });
-      }else{fallback(item);}
-    }catch(err){fallback(item);}
-  }
-  button.disabled=true;button.setAttribute("aria-busy","true");
-  if(state.storyUrl && state.storyFile){
-    send({file:state.storyFile,url:state.storyUrl});
-  }else{
-    shMsg("공유할 이미지를 준비하고 있어요…");
-    prepareStory().then(function(item){shMsg("");send(item);}).catch(function(){
-      done();shMsg("이미지를 만들지 못했습니다. 다시 눌러주세요.");
+  shMsg("이미지를 만드는 중이에요…");
+  var go=function(){
+    var canvas;
+    try{ canvas=buildStory(); }
+    catch(err){ shMsg("이미지를 만들지 못했습니다. 잠시 뒤 다시 눌러주세요."); return; }
+    canvas.toBlob(function(blob){
+      if(!blob){ shMsg("이미지를 만들지 못했습니다."); return; }
+      var file=null;
+      try{ file=new File([blob],"수달도사-오늘의운세.png",{type:"image/png"}); }catch(e){}
+      var url=URL.createObjectURL(blob);
+      el("shPrevImg").src=url;
+      el("shSave").href=url;
+      el("shPrev").classList.remove("hidden");
+      if(file && navigator.canShare && navigator.canShare({files:[file]})){
+        navigator.share({files:[file], title:"수달도사의 오늘 운세"})
+          .then(function(){ shMsg("공유 창에서 인스타그램 · 스토리를 골라주세요."); })
+          .catch(function(err){
+            if(err && err.name==="AbortError") { shMsg(""); return; }
+            shMsg("이미지를 저장한 뒤 인스타그램 스토리에 사진으로 올려주세요.");
+          });
+      } else {
+        shMsg("이미지가 준비됐습니다. 저장한 뒤 인스타그램 스토리에 사진으로 올려주세요.");
+      }
+    },"image/png");
+  };
+  var need=[zodiacImg(state.me.z), DOSA];
+  var waitImg=function(next){
+    var left=0, done=function(){ if(--left<=0) next(); };
+    need.forEach(function(g){ if(!(g.complete && g.naturalWidth)) left++; });
+    if(!left) return next();
+    need.forEach(function(g){
+      if(g.complete && g.naturalWidth) return;
+      g.addEventListener("load", done, {once:true});
+      g.addEventListener("error", done, {once:true});
     });
-  }
+    setTimeout(next, 2500);
+  };
+  if(document.fonts && document.fonts.ready)
+    document.fonts.ready.then(function(){ waitImg(go); }, function(){ waitImg(go); });
+  else waitImg(go);
 }
 el("shInsta").addEventListener("click", shareStory);
+
 function refreshShareLinks(){
   var u = encodeURIComponent(pageUrl());
   var t = encodeURIComponent(INVITE_HEAD + " " + inviteLine());
